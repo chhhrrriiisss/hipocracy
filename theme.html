@@ -136,6 +136,8 @@
 
 	<style>
 
+		iframe {display:none !important;} /* Remove Tumblr Links */
+
 		html {
 		    -webkit-text-size-adjust: none;
 		    font-family: '{text:Primary Google Font name}';
@@ -1402,7 +1404,7 @@
 			display: block;
 			top:0px;
 			left:0px;
-			height:80px;
+			height:100px;
 			z-index: 550;
 		}
 
@@ -1429,7 +1431,7 @@
 		}
 
 		#nav-toggle-wrapper.invert {
-			background:#fff;
+			background:rgba(255,255,255,.5);
 		}
 
 		#nav-toggle-wrapper.invert.active {
@@ -1512,6 +1514,51 @@
 		#masthead #site-name {
 			margin-left: -.1em;
 		}
+
+		#nav-header {
+
+			width:100%;
+			height:auto;
+			padding:0% 10%;
+		}
+
+		#nav-header nav {
+			display:block !important;
+		}
+
+		#nav-header nav ul {
+			width:100%;
+			margin:0 auto;
+			display:table;
+			text-align:center;
+		}
+
+		#nav-header nav ul li {
+			display:inline-block;
+			list-style:none;		
+			text-align:center;
+
+			padding:2% 4%;
+			
+		}
+
+		#nav-header nav ul li a {
+			opacity: .75;
+			filter: alpha(opacity=.75);
+			-ms-filter: "alpha(Opacity=75)";
+
+			transition: all .2s ease;
+
+			cursor:pointer;
+		}
+
+		#nav-header nav ul li a:hover {
+			opacity: 1;
+			filter: alpha(opacity=1);
+			-ms-filter: "alpha(Opacity=100)";
+		}
+
+
 
 		#description p {
 			text-align:center;
@@ -1986,7 +2033,95 @@
 	      
 	    </div>
 	    {/block:IfMastheadSearch} 
+
+		<!-- Header Navigation -->
+
+		<div id="nav-header" role="navigation">
+
+		<nav class="page-width">
+
+		<ul>
+
+		{block:HasPages}{block:Pages} 
+		<li>
+
+		<a href="{URL}" {Target}>
+		  {Label}
+		</a>
+		</li>
+		{/block:Pages}{/block:HasPages}
+
+		{block:IfDirectLinkUrlOne} 
+		<li>
+
+		<a href="{text:Direct link URL One}" class="direct-link" {Target}>
+		  {block:IfDirectLinkTitleOne}{text:Direct link title One}{/block:IfDirectLinkTitleOne} {block:IfNotDirectLinkTitleOne}{lang:Link}{/block:IfNotDirectLinkTitleOne} 
+		</a>
+
+		</li>
+		{/block:IfDirectLinkUrlOne} 
+
+		{block:IfDirectLinkUrlTwo} 
+		<li>
+
+		<a href="{text:Direct link URL Two}" class="direct-link" {Target}>
+		  {block:IfDirectLinkTitleTwo}{text:Direct link title Two}{/block:IfDirectLinkTitleTwo} {block:IfNotDirectLinkTitleTwo}{lang:Link}{/block:IfNotDirectLinkTitleTwo} 
+		</a>
+
+		</li>
+		{/block:IfDirectLinkUrlTwo} 
+
+		{block:IfDirectLinkUrlThree} 
+		<li>
+
+		<a href="{text:Direct link URL Three}" class="direct-link" {Target}>
+		  {block:IfDirectLinkTitleThree}{text:Direct link title Three}{/block:IfDirectLinkTitleThree} {block:IfNotDirectLinkTitleThree}{lang:Link}{/block:IfNotDirectLinkTitleThree} 
+		</a>
+
+		</li>
+		{/block:IfDirectLinkUrlThree} 
+
+		{block:IfDirectLinkUrlFour} 
+		<li>
+
+		<a href="{text:Direct link URL Four}" class="direct-link" {Target}>
+		  {block:IfDirectLinkTitleFour}{text:Direct link title Four}{/block:IfDirectLinkTitleFour} {block:IfNotDirectLinkTitleFour}{lang:Link}{/block:IfNotDirectLinkTitleFour} 
+		</a>
+
+		</li>
+		{/block:IfDirectLinkUrlFour} 
+
+		{block:IfDirectLinkUrlFive} 
+		<li>
+
+		<a href="{text:Direct link URL Five}" class="direct-link" {Target}>
+		  {block:IfDirectLinkTitleFive}{text:Direct link title Five}{/block:IfDirectLinkTitleFive} {block:IfNotDirectLinkTitleFive}{lang:Link}{/block:IfNotDirectLinkTitleFive} 
+		</a>
+
+		</li>
+		{/block:IfDirectLinkUrlFive} 
+
+		{block:IfDirectLinkUrlSix} 
+		<li>
+
+		<a href="{text:Direct link URL Six}" class="direct-link" {Target}>
+		  {block:IfDirectLinkTitleSix}{text:Direct link title Six}{/block:IfDirectLinkTitleSix} {block:IfNotDirectLinkTitleSix}{lang:Link}{/block:IfNotDirectLinkTitleSix} 
+		</a>
+
+		</li>
+		{/block:IfDirectLinkUrlSix} 
+		</ul>
+
+		</nav>
+
+		</div>
+
+
+
 	  </header>
+
+	 
+
 
 
 	  <!--Description Wrapper -->
@@ -2006,88 +2141,7 @@
 	  {/block:IfMastheadDescription} 
 	  {/block:IndexPage}
 
-	  <!-- Header Navigation -->
-
-		<div id="nav-header" class="widget" role="navigation">
-
-		<nav>
-
-		<ul>
-		 
-		  {block:HasPages}{block:Pages} 
-		  <li>
-		    
-		    <a href="{URL}" {Target}>
-		      {Label}
-		    </a>
-		  </li>
-		  {/block:Pages}{/block:HasPages}
-
-		  {block:IfDirectLinkUrlOne} 
-		  <li>
-		    
-		    <a href="{text:Direct link URL One}" class="direct-link" {Target}>
-		      {block:IfDirectLinkTitleOne}{text:Direct link title One}{/block:IfDirectLinkTitleOne} {block:IfNotDirectLinkTitleOne}{lang:Link}{/block:IfNotDirectLinkTitleOne} 
-		    </a>
-		    
-		  </li>
-		  {/block:IfDirectLinkUrlOne} 
-
-		  {block:IfDirectLinkUrlTwo} 
-		  <li>
-		    
-		    <a href="{text:Direct link URL Two}" class="direct-link" {Target}>
-		      {block:IfDirectLinkTitleTwo}{text:Direct link title Two}{/block:IfDirectLinkTitleTwo} {block:IfNotDirectLinkTitleTwo}{lang:Link}{/block:IfNotDirectLinkTitleTwo} 
-		    </a>
-		    
-		  </li>
-		  {/block:IfDirectLinkUrlTwo} 
-
-		  {block:IfDirectLinkUrlThree} 
-		  <li>
-		    
-		    <a href="{text:Direct link URL Three}" class="direct-link" {Target}>
-		      {block:IfDirectLinkTitleThree}{text:Direct link title Three}{/block:IfDirectLinkTitleThree} {block:IfNotDirectLinkTitleThree}{lang:Link}{/block:IfNotDirectLinkTitleThree} 
-		    </a>
-		    
-		  </li>
-		  {/block:IfDirectLinkUrlThree} 
-
-		  {block:IfDirectLinkUrlFour} 
-		  <li>
-		    
-		    <a href="{text:Direct link URL Four}" class="direct-link" {Target}>
-		      {block:IfDirectLinkTitleFour}{text:Direct link title Four}{/block:IfDirectLinkTitleFour} {block:IfNotDirectLinkTitleFour}{lang:Link}{/block:IfNotDirectLinkTitleFour} 
-		    </a>
-		    
-		  </li>
-		  {/block:IfDirectLinkUrlFour} 
-
-		  {block:IfDirectLinkUrlFive} 
-		  <li>
-		    
-		    <a href="{text:Direct link URL Five}" class="direct-link" {Target}>
-		      {block:IfDirectLinkTitleFive}{text:Direct link title Five}{/block:IfDirectLinkTitleFive} {block:IfNotDirectLinkTitleFive}{lang:Link}{/block:IfNotDirectLinkTitleFive} 
-		    </a>
-		    
-		  </li>
-		  {/block:IfDirectLinkUrlFive} 
-
-		  {block:IfDirectLinkUrlSix} 
-		  <li>
-		    
-		    <a href="{text:Direct link URL Six}" class="direct-link" {Target}>
-		      {block:IfDirectLinkTitleSix}{text:Direct link title Six}{/block:IfDirectLinkTitleSix} {block:IfNotDirectLinkTitleSix}{lang:Link}{/block:IfNotDirectLinkTitleSix} 
-		    </a>
-		    
-		  </li>
-		  {/block:IfDirectLinkUrlSix} 
-		</ul>
-
-		</nav>
-
-		</div>
-
+	  
 
 	  <!-- Content Wrapper -->
 
@@ -2608,7 +2662,7 @@ $(document).ready(function() {
 
 	$('#loading').hide();
 
-	$('#wrapper').waypoint(function(direction) {
+	$('#header-nav').waypoint(function(direction) {
 		(direction == 'down') ? $navWrapper.addClass('invert') : $navWrapper.removeClass('invert');
 	});
 
