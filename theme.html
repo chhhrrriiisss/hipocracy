@@ -21,9 +21,9 @@
 	<meta name="color:Accent" content="#2F3C6F"/>    
 	<meta name="color:Primary post hover effect" content="#ededed"/>    
 	<meta name="color:Secondary post hover effect" content="#f0bfb3"/>    
-	<meta name="if:Infinite scroll" content="1"/>    
-	<meta name="if:Form fewer columns" content="0"/>    
-	<meta name="if:Index Tumblr like and reblog buttons" content="0"/>    
+	<meta name="if:Infinite scroll" content="1"/>   
+	<meta name="if:Twitter Widget" content="0"/>   
+	<meta name="if:Form fewer columns" content="0"/>   
 	<meta name="if:Index tags" content="0"/>    
 	<meta name="if:Index permalink label" content="0"/>    
 	<meta name="if:Permalink Tumblr like and reblog buttons" content="0"/>    
@@ -42,13 +42,10 @@
 	<meta name="if:Masthead title" content="0"/>    
 	<meta name="if:Post title centered" content="0"/>    
 	<meta name="if:Post buttons" content="1"/>    
-	<meta name="if:Load Latin subset font if available" content="0"/>    
 	<meta name="image:Masthead image" content=""/>    
 	<meta name="image:Masthead logo" content=""/>    
 	<meta name="image:Masthead background" content=""/>    
 	<meta name="image:Body background" content=""/>    
-	<meta name="text:Text widget" content=''/>    
-	<meta name="text:Twitter widget code" content=''/>    
 	<meta name="text:Primary Google Font name" content="Source Sans Pro">    
 	<meta name="text:Secondary Google Font name" content="Montserrat">    
 	<meta name="text:Google Analytics ID" content=''/>    
@@ -66,9 +63,6 @@
 	<meta name="text:Direct link title five" content=''/>    
 	<meta name="text:Direct link URL six" content=''/>    
 	<meta name="text:Direct link title six" content=''/>    
-	<meta name="select:Avatar style" content="avatar-circle" title="Circle">    
-	<meta name="select:Avatar style" content="avatar-square" title="Square">    
-	<meta name="select:Avatar style" content="avatar-rounded" title="Rounded">    
 	<meta name="select:Font size" content="0.95em" title="Normal">    
 	<meta name="select:Font size" content="0.85em" title="Mini">    
 	<meta name="select:Font size" content="0.9em" title="Tiny">    
@@ -83,13 +77,11 @@
 	<meta name="select:Post button icon set" content="borders-white" title="Borders in white">    
 	<meta name="select:Post button icon set" content="borders-black" title="Borders in black">    
 	<meta name="select:Post button icon set" content="flat-white" title="Flat in white">    
-	<meta name="select:Post button icon set" content="flat-black" title="Flat in black">    
-	<meta name="select:Masthead effect" content="none" title="None">    
-	<meta name="select:Masthead effect" content="glow" title="Glow">    
-	<meta name="select:Masthead effect" content="border-in" title="Border in">
-	<meta name="select:Masthead effect" content="gradient" title="Gradient">
-	<meta name="select:Masthead effect" content="color" title="Color">
-	<meta name="select:Masthead effect" content="fade-out" title="Fade out">
+	<meta name="select:Post button icon set" content="flat-black" title="Flat in black">   
+
+	<meta name="if:Post Timestamp In Day Month Year" content="0"/>   
+	<meta name="if:Post Timestamp In Time Ago" content="1"/>   
+
 	<meta name="select:Post hover effect" content="none" title="None">
 	<meta name="select:Post hover effect" content="glow" title="Glow">
 	<meta name="select:Post hover effect" content="border-in" title="Border in">
@@ -157,6 +149,7 @@
 			transform: translateX(-50%);
 			max-width:1600px;
 		}
+
 
 		body {
 		    height: 101%;
@@ -238,7 +231,7 @@
 		}
 
 		#masthead #search form input {
-		    opacity: .8;
+		   
 		    transition: all 1s ease-in;
 		    -webkit-transition: all 1s ease-in;
 		    -moz-transition: all 1s ease-in;
@@ -250,10 +243,18 @@
 		    line-height: 200%;
 		    outline: 0;
 		    background: 0;
+
+
+		    opacity: .8;
+			filter: alpha(opacity=.8);
+			-ms-filter: "alpha(Opacity=80)";
+
 		}
 
 		#masthead #search form input:hover {
 		    opacity: 1;
+			filter: alpha(opacity=1);
+			-ms-filter: "alpha(Opacity=100)";
 		}
 
 		#pages nav,#masthead #site-info {
@@ -303,6 +304,7 @@
 		margin: 0;
 		line-height: 150%;
 		margin: .5em 0;
+		z-index:301 !important;
 		}
 
 		.link .entry-title a {
@@ -556,12 +558,16 @@
 		-ms-transition: ease-in .2s;
 		transition: ease-in .2s;
 		opacity: 0;
-		z-index: 100;
+		filter: alpha(opacity=0);
+		-ms-filter: "alpha(Opacity=0)";
+		z-index:300;
 
 		}
 
 		.index .post-hover:hover,.index .post-hover a:hover {
-		opacity: 1;
+			opacity: 1;
+			filter: alpha(opacity=1);
+			-ms-filter: "alpha(Opacity=100)";
 		}
 
 		.index .post-hover a {
@@ -569,6 +575,8 @@
 			width: 30px;
 			height: 30px;
 			opacity: 0;
+			filter: alpha(opacity=0);
+			-ms-filter: "alpha(Opacity=0)";
 			z-index: 100;
 			cursor:pointer;
 			position: absolute;
@@ -619,6 +627,8 @@
 
 		.index .post-hover:hover a {
 		opacity: 1;
+		filter: alpha(opacity=1);
+		-ms-filter: "alpha(Opacity=100)";
 		margin-top: -15px;
 		}
 
@@ -1373,7 +1383,9 @@
 			line-height: 2em;
 			padding: 1.5em!important;
 			background: {color:Menu background};
-			opacity:.9;
+			opacity: .9;
+			filter: alpha(opacity=.9);
+			-ms-filter: "alpha(Opacity=90)";
 		}
 
 		#overlay ul {
@@ -1385,18 +1397,66 @@
 			width:100%;
 			min-width:320px;
 		}
+
+		#overlay ul li {
+			display:block;
+			text-align:center;
+			width:100%;
+			margin:2px 0px;
+		}
+
 		#overlay ul li a {
-			width: 100%;
+			width:100%;
+			min-width:300px;
+			max-width:500px;
 			display: inline-block;
-			padding: .5em;
+			padding: 0.5% 5%;
+
+			border:4px solid rgba(255,255,255,0);
+			transition: all .1s ease;
+		}
+
+		#overlay ul li a:hover {
+			border:4px solid #fff;
+		}
+
+		#overlay ul li a.active {
+			opacity: .8;
+			filter: alpha(opacity=.8);
+			-ms-filter: "alpha(Opacity=80)";
+		}
+
+		#overlay ul li a.active:hover {
+			border:4px solid rgba(255,255,255,0) !important;
 		}
 
 		/* 
 
-				Navigation Button 
+			Twitter Widget
 
 		*/
 
+		#twitter-widget {
+			position:absolute;
+			top:25px;
+			left:25px;		
+		}
+
+		#twitter-widget .button {
+			position:relative;
+			display:block;
+			width:200px;
+			height:50px;
+			z-index:400;
+			background:{color:Menu background};
+		}
+
+
+		/* 	
+
+			Navigation Button 
+
+		*/
 
 		#nav-toggle-wrapper {
 			width: 100%;	
@@ -1456,16 +1516,16 @@
 
 		#nav-toggle .b1 {
 			top: 7px;
-			transition: all 600ms ease-in-out;
+			transition: all 300ms ease-in-out;
 		}
 
 		#nav-toggle .b3 {
 			bottom: 7px;
-			transition: all 750ms ease-in-out;
+			transition: all 325ms ease-in-out;
 		}
 
 		#nav-toggle .b2 {
-			transition: all 450ms ease-in-out;
+			transition: all 225ms ease-in-out;
 		}
 
 		#nav-toggle.active .b2 {
@@ -1518,8 +1578,9 @@
 		#nav-header {
 
 			width:100%;
+			min-width:450px;
 			height:auto;
-			padding:0% 10%;
+		
 		}
 
 		#nav-header nav {
@@ -1538,26 +1599,29 @@
 			list-style:none;		
 			text-align:center;
 
-			padding:2% 4%;
-			
-		}
 
-		#nav-header nav ul li a {
+			padding:.75% 4%;
+			border: 3px solid rgba(0,0,0,0);
+
+			cursor:pointer;
+			transition: all .2s ease;
+
 			opacity: .75;
 			filter: alpha(opacity=.75);
 			-ms-filter: "alpha(Opacity=75)";
-
-			transition: all .2s ease;
-
-			cursor:pointer;
 		}
 
-		#nav-header nav ul li a:hover {
+		#nav-header nav ul li:hover, #nav-header nav ul li.active, #nav-header nav ul li.active a{
+
 			opacity: 1;
 			filter: alpha(opacity=1);
 			-ms-filter: "alpha(Opacity=100)";
+			color: {color:Menu Background};
 		}
 
+		#nav-header nav ul li.active {
+			border:3px solid {color:Menu Background};
+		}
 
 
 		#description p {
@@ -1577,7 +1641,7 @@
 			width:100%;
 			background:rgba(0,0,0,.08);	
 			padding:3% 10%;		
-			box-shadow: inset 0px 10px 20px rgba(0,0,0,.12);		
+			box-shadow: inset 0px 5px 20px rgba(0,0,0,.2);		
 		}
 
 		/*
@@ -1653,9 +1717,11 @@
 		margin: 0;
 		}
 
-		.content-text,.content-media {
+		.content-text, .content-media {
 		padding: 0;
 		}
+
+
 
 		.four-col.index article,.fallback-col.index article {
 		width: 20%;
@@ -1669,9 +1735,19 @@
 		padding: 6% 10%;
 		margin: 0;
 		}
+		.index .content-media .post {
+			padding:0% 5%;
+			padding-bottom:20px;
 
+		}
 		.index .content-text .post {
-		padding: 0% 10%;
+			padding: 0% 10%;
+			margin-bottom:20px;
+			padding-bottom:20px;
+			text-overflow: ellipsis; 
+			overflow:hidden;
+			max-height:400px;
+
 		}
 
 		#avatar img {
@@ -1682,6 +1758,10 @@
 		margin: 0;
 		background: {color:Accent};
 		border-top:1px solid rgba(0,0,0,.05);
+		}
+		.no-post-hover.content-info {
+			z-index:300;
+
 		}
 
 		.index article footer.tags-enabled,.index article footer.permalink-label-enabled,.index article footer.note-count-enabled,.index article footer.like-buttons-enabled {
@@ -1747,10 +1827,6 @@
 			display: inline-block;
 			}
 
-			#content>article.twitter-embed {
-			text-align: center;
-			padding: 0;
-			}
 
 		}
 
@@ -1821,18 +1897,15 @@
 			padding: 4%;
 			display: inline-block;
 			}
-
-			#content>article.twitter-embed {
-			text-align: center;
-			padding: 0;
-			}
-
 		}
 
 		/* Small Screens */
 
 		@media screen and (max-width:480px) {
 
+			.hide-mobile {
+				display:none !important;
+			}
 
 			#description p {
 				font-size:1em;
@@ -1851,7 +1924,18 @@
 	</head> 
 
 <body class="{block:PermalinkPage}permalink{/block:PermalinkPage} {block:IndexPage}index{/block:IndexPage} fixed-masthead {block:IfFormFewerColumns}three-col{/block:IfFormFewerColumns} {block:IfNotFormFewerColumns}four-col{/block:IfNotFormFewerColumns} {select:Body background} {select:Masthead background} masthead-effect-{select:Masthead effect} post-effect-{select:Post hover effect} menu-{select:Menu} {block:IfPostTitleCentered}entry-title-centered{/block:IfPostTitleCentered} link-normal link-special animate {select:Photo filter} masthead-effect-{select:Masthead effect} {block:PermalinkPage}permalink{/block:PermalinkPage} {block:IndexPage}index{/block:IndexPage} fixed-masthead {block:IfFormFewerColumns}three-col{/block:IfFormFewerColumns} {block:IfNotFormFewerColumns}four-col{/block:IfNotFormFewerColumns} {select:Body background} {select:Masthead background} masthead-effect-{select:Masthead effect} post-effect-{select:Post hover effect} menu-{select:Menu} {block:IfPostTitleCentered}entry-title-centered{/block:IfPostTitleCentered} link-normal link-special animate {select:Photo filter} {/block:IfNotLinkToOlleOtaThemes}">
-  
+  		
+		{block:IfTwitterWidget} 
+		<div id="twitter-widget">
+
+			<div class="button">
+			<a href="https://twitter.com/bennettfeely" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @designdem</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>				
+	
+		</div>
+		{/block:IfTwitterWidget} 
+
 
 		<div id="nav-toggle-wrapper" class="nav-toggle-wrapper">
 
@@ -2036,7 +2120,7 @@
 
 		<!-- Header Navigation -->
 
-		<div id="nav-header" role="navigation">
+		<div id="nav-header" class="hide-mobile" role="navigation">
 
 		<nav class="page-width">
 
@@ -2190,15 +2274,19 @@
 	          <span class="special-effect hover-effect">
 	          </span>
 	          
-	          <li>
-	            <a href="{Permalink}" class="permalink icon" {Target}>
-	              
-	              <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}">
-	                {DayOfMonth} {Month} {Year}
-	              </time>
-	            </a>
-	          </li>         
-	       
+				<li>
+					<a href="{Permalink}" class="permalink icon" {Target}>
+
+						<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}">
+						{DayOfMonth} {Month} {Year}
+						</time>
+					</a>
+				</li>  
+
+				<li>
+					<a href="#" class="like">like</a>
+				</li>       
+
 	        </ul>
 	        {/block:IfPostButtons}{/block:IndexPage}{/block:Date} 
 	        <!--Post hover on the permalink page-->
@@ -2478,7 +2566,9 @@
 	                        </li>
 	                        
 	                      </ul>
-	                      {/block:IfPermalinkTumblrLikeAndReblogButtons} {block:IfDisqusShortname} 
+	                      {/block:IfPermalinkTumblrLikeAndReblogButtons} 
+
+	                      {block:IfDisqusShortname} 
 	                      <script type="text/javascript">
 	                        var disqus_url = "{Permalink}";
 	                        var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";
@@ -2488,24 +2578,24 @@
 	                      </div>
 
 
-
-	<script type="text/javascript">
-	/**
-	* var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread] 
-	*/
-	(function() {
-	 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	 dsq.src = 'http://{text:Disqus Shortname}.disqus.com/embed.js';
-	 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
-	</script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript={text:Disqus Shortname}">comments powered by Disqus.</a></noscript> <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a> {/block:Permalink}<script type="text/javascript">
-	var disqus_shortname = '{text:Disqus Shortname}';
-	(function () {
-	var s = document.createElement('script'); s.async = true;
-	s.src = 'http://{text:Disqus Shortname}.disqus.com/count.js';
-	(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-	}());
-	</script> 
+	<!--
+	// <script type="text/javascript">
+	// 
+	// * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread] 
+	// 
+	// (function() {
+	//  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	//  dsq.src = 'http://{text:Disqus Shortname}.disqus.com/embed.js';
+	//  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	// })();
+	// </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript={text:Disqus Shortname}">comments powered by Disqus.</a></noscript> <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a> {/block:Permalink}<script type="text/javascript">
+	// var disqus_shortname = '{text:Disqus Shortname}';
+	// (function () {
+	// var s = document.createElement('script'); s.async = true;
+	// s.src = 'http://{text:Disqus Shortname}.disqus.com/count.js';
+	// (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+	// }());
+	// </script> -->
 
 	{/block:IfDisqusShortname} {block:IfPermalinkShareButtons} 
 	<ul class="global-share">
@@ -2589,20 +2679,33 @@
 	</footer>
 	{/block:IndexPage}{/block:Date} 
 	<!--Post hover on the index page-->
-	{block:Date}{block:IndexPage}{block:IfNotPostButtons}{block:IfNotIndexPermalinkLabel} 
+	{block:Date}{block:IndexPage}{block:IfNotIndexPermalinkLabel} 
 	<ul class="no-post-hover {block:ContentSource}has_source{/block:ContentSource}" role="contentinfo">
 
 	<li>
 	  <a href="{Permalink}" class="published permalink" {Target}>
 	    
-	    <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}">
-	      {DayOfMonth} {Month} {Year}
+		{block:IfPostTimestampInDayMonthYear}
+		<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}">
+		   {DayOfMonth} {Month} {Year}
+		</time>		
+		{/block:IfPostTimestampInDayMonthYear}
+
+		{block:IfPostTimestampInTimeAgo}
+		{TimeAgo}
+		{/block:IfPostTimestampInTimeAgo}
+
+		</a> 
+	</li>
+
+	</ul>
+	{/block:IfNotIndexPermalinkLabel}{/block:IfNotPostButtons}
 	    </time>
 	  </a>
 	</li>
 
 	</ul>
-	{/block:IfNotIndexPermalinkLabel}{/block:IfNotPostButtons}{/block:IndexPage}{/block:Date} 
+	{/block:IfNotIndexPermalinkLabel}{/block:IndexPage}{/block:Date} 
 	</article>
 	{/block:Posts} 
 	</div>
@@ -2657,13 +2760,54 @@ var theme_options = {
 <script>
 $(document).ready(function() {
 
+	/* 
+		Vars
+	*/
+
 	$nav = $('#nav-toggle');
 	$navWrapper = $('#nav-toggle-wrapper');
 
 	$('#loading').hide();
 
-	$('#header-nav').waypoint(function(direction) {
+	/* 
+		Trigger for nav-toggle button invert
+	*/
+
+	$('#wrapper').waypoint(function(direction) {
 		(direction == 'down') ? $navWrapper.addClass('invert') : $navWrapper.removeClass('invert');
+	});
+
+
+	/* 
+		Active class for nav links
+	*/
+
+	$("a").each(function(){
+
+	   href = $(this).attr("href");
+	   if (href == window.location.pathname) {
+	        $(this).addClass("active");
+	        $(this).parent().addClass("active");
+	   }
+	});
+
+	/* 
+		Vote up / Down
+	*/
+
+	$(document).on( 'click', '.like', function ( event ) {
+
+		event.preventDefault();
+
+		var command = $( this ).hasClass( 'liked' ) ? 'unlike' : 'like',
+		post = $( this ).closest( '.post' ),
+		oauth = post.find( '.reblog' ).attr( 'href' ).slice( -8 ),
+		id = post.attr( 'id' ),
+		likeUrl = 'http://www.tumblr.com/' + command + '/' + oauth + '?id=' + id;
+
+		$( '#like-it' ).attr( 'src', likeUrl );
+		$( this ).toggleClass( 'liked' );
+
 	});
 
 
