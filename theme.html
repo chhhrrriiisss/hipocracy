@@ -304,7 +304,8 @@
 		margin: 0;
 		line-height: 150%;
 		margin: .5em 0;
-		z-index:301 !important;
+		z-index:401 !important;
+
 		}
 
 		.link .entry-title a {
@@ -1578,7 +1579,7 @@
 		#nav-header {
 
 			width:100%;
-			min-width:450px;
+			min-width:500px;
 			height:auto;
 		
 		}
@@ -1628,6 +1629,7 @@
 			text-align:center;
 			text-transform:uppercase;
 			max-width:700px;
+			min-width:280px;
 
 			font-size:1.35em;
 			font-family: '{text:Secondary Google Font name}';
@@ -1641,7 +1643,7 @@
 			width:100%;
 			background:rgba(0,0,0,.08);	
 			padding:3% 10%;		
-			box-shadow: inset 0px 5px 20px rgba(0,0,0,.2);		
+			box-shadow: inset 0px 5px 20px rgba(0,0,0,.25);
 		}
 
 		/*
@@ -1721,6 +1723,10 @@
 		padding: 0;
 		}
 
+		.content-media {
+			padding:0px !important;
+		}
+
 
 
 		.four-col.index article,.fallback-col.index article {
@@ -1736,8 +1742,8 @@
 		margin: 0;
 		}
 		.index .content-media .post {
-			padding:0% 5%;
-			padding-bottom:20px;
+			padding:0px;
+			
 
 		}
 		.index .content-text .post {
@@ -1780,7 +1786,7 @@
 
 
 		.permalink #content {
-		margin: 5% 26%;
+		margin: 5% 13%;
 		}
 
 		.permalink article {
@@ -1794,7 +1800,6 @@
 			Media Queries 
 
 		*/
-
 
 		/* Normal */
 
@@ -1821,9 +1826,9 @@
 			}
 
 			.four-col.index article,.fallback-col.index article,.three-col.index article,.permalink article {
-			width: 45%;
-			margin: 2% 2.5%;
-			padding: 4%;
+			width: 50%;
+			margin: 0 auto;
+			padding: 8% 4%;
 			display: inline-block;
 			}
 
@@ -1892,19 +1897,27 @@
 			}
 
 			.four-col.index article,.fallback-col.index article,.three-col.index article,.permalink article {
-			width: 90%;
-			margin: 2% 5%;
-			padding: 4%;
+			width: 100%;
+			margin: 0px;
+			padding: 8% 4%;
 			display: inline-block;
 			}
 		}
 
 		/* Small Screens */
 
-		@media screen and (max-width:480px) {
+		@media screen and (max-width:500px) {
 
 			.hide-mobile {
 				display:none !important;
+			}
+
+			#nav-header {
+				display:none !important;
+			}
+
+			#masthead {
+				padding:14% 4%;
 			}
 
 			#description p {
@@ -1915,6 +1928,7 @@
 				padding:10% 10%;
 			}
 
+	
 		}
 
 	</style> 
@@ -2775,7 +2789,7 @@ $(document).ready(function() {
 
 	$('#wrapper').waypoint(function(direction) {
 		(direction == 'down') ? $navWrapper.addClass('invert') : $navWrapper.removeClass('invert');
-	});
+	}, { offset: 50 });
 
 
 	/* 
