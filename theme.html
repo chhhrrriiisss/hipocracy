@@ -126,6 +126,7 @@
 	<link rel="alternate" type="application/rss+xml" href="{RSS}">    
 	<link href="http://static.tumblr.com/wgijwsy/YZomlhwl6/normalize.min.css" rel="stylesheet" type="text/css"/>
 
+
 	<style>
 
 		iframe {display:none !important;} /* Remove Tumblr Links */
@@ -146,8 +147,11 @@
 			position:relative;
 			left:50%;
 			top:0px;
+ 			max-width:1600px;
+
+			-webkit-transform: translateX(-50%);
+			-ms-transform: translateX(-50%);
 			transform: translateX(-50%);
-			max-width:1600px;
 		}
 
 
@@ -246,8 +250,8 @@
 
 
 		    opacity: .8;
-			filter: alpha(opacity=.8);
-			-ms-filter: "alpha(Opacity=80)";
+			  filter: alpha(opacity=.8);
+			  -ms-filter: "alpha(Opacity=80)";
 
 		}
 
@@ -267,7 +271,14 @@
 
 		.index #content {
 		    width: 100%;
-		    margin-bottom: 3%;
+		    max-width:1600px;		    
+		    left:50%;
+		    margin-bottom: 3%;		  
+
+				-webkit-transform: translateX(-50%); 
+				    -ms-transform: translateX(-50%); 
+				        transform: translateX(-50%); 
+
 		}
 
 
@@ -1394,7 +1405,11 @@
 			position:absolute;
 			top:50%;
 			left:50%;
-			transform: translate(-50%, -50%);
+
+			-webkit-transform: translate(-50%. -50%); 
+			    -ms-transform: translate(-50%. -50%); 
+			        transform: translate(-50%. -50%); 
+
 			width:100%;
 			min-width:320px;
 		}
@@ -1492,7 +1507,7 @@
 		}
 
 		#nav-toggle-wrapper.invert {
-			background:rgba(255,255,255,.5);
+			background:rgba(255,255,255,.75);
 		}
 
 		#nav-toggle-wrapper.invert.active {
@@ -1535,11 +1550,19 @@
 		}
 
 		#nav-toggle.active .b1 {
-			transform: rotate(45deg) translateY(18px);
+
+			-webkit-transform: rotate(45deg) translateY(18px);
+					-ms-transform: rotate(45deg) translateY(18px);
+			 		transform:rotate(45deg) translateY(18px);
+
 		}
 
 		#nav-toggle.active .b3 {
-			transform: rotate(-45deg) translateY(-18px);
+
+			-webkit-transform: rotate(-45deg) translateY(-18px);
+				-ms-transform: rotate(-45deg) translateY(-18px);
+				transform: rotate(-45deg) translateY(-18px);
+
 		}
 
 
@@ -1825,13 +1848,16 @@
 			margin: 0 0 3%;
 			}
 
-			.four-col.index article,.fallback-col.index article,.three-col.index article,.permalink article {
-			width: 50%;
-			margin: 0 auto;
-			padding: 8% 4%;
-			display: inline-block;
+			.four-col.index article,.fallback-col.index article,.three-col.index article {
+				width: 32.9%;
+				margin: 0 auto;
+				padding: 4% 2%;
+				display: inline-block;
 			}
 
+			.permalink article {
+				width:50%;
+			}
 
 		}
 
@@ -1897,10 +1923,14 @@
 			}
 
 			.four-col.index article,.fallback-col.index article,.three-col.index article,.permalink article {
-			width: 100%;
-			margin: 0px;
-			padding: 8% 4%;
-			display: inline-block;
+					width: 50%;
+					margin: 0px;
+					padding: 8% 4%;
+					display: inline-block;
+			}
+
+			.permalink article {
+				 width:100%;
 			}
 		}
 
@@ -1928,6 +1958,13 @@
 				padding:10% 10%;
 			}
 
+
+			.four-col.index article,.fallback-col.index article,.three-col.index article,.permalink article {
+					width: 100%;
+					margin: 0px;
+					padding: 8% 4%;
+					display: inline-block;
+			}
 	
 		}
 
@@ -2289,17 +2326,13 @@
 	          </span>
 	          
 				<li>
-					<a href="{Permalink}" class="permalink icon" {Target}>
+					<a href="{Permalink}" class="permalink" {Target}>
 
 						<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}">
 						{DayOfMonth} {Month} {Year}
 						</time>
 					</a>
-				</li>  
-
-				<li>
-					<a href="#" class="like">like</a>
-				</li>       
+				</li>    
 
 	        </ul>
 	        {/block:IfPostButtons}{/block:IndexPage}{/block:Date} 
@@ -2803,25 +2836,6 @@ $(document).ready(function() {
 	        $(this).addClass("active");
 	        $(this).parent().addClass("active");
 	   }
-	});
-
-	/* 
-		Vote up / Down
-	*/
-
-	$(document).on( 'click', '.like', function ( event ) {
-
-		event.preventDefault();
-
-		var command = $( this ).hasClass( 'liked' ) ? 'unlike' : 'like',
-		post = $( this ).closest( '.post' ),
-		oauth = post.find( '.reblog' ).attr( 'href' ).slice( -8 ),
-		id = post.attr( 'id' ),
-		likeUrl = 'http://www.tumblr.com/' + command + '/' + oauth + '?id=' + id;
-
-		$( '#like-it' ).attr( 'src', likeUrl );
-		$( this ).toggleClass( 'liked' );
-
 	});
 
 
