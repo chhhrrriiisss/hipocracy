@@ -30,9 +30,8 @@
 	<meta name="image:Twitter Widget Image" content="http://static.tumblr.com/k26otqz/goWn7dc3a/bird_white.png"/>  
 
 	<meta name="if:Show Back Link" content="0"/>    
-	<meta name="text: Back Link Url" content="designdem.tumblr.com"/>   
-	<meta name="text: Back Link Text" content=""/>   
-	<meta name="image: Back Link Image" content="http://static.tumblr.com/k26otqz/wjYn7dg6z/subblogs.png"/>   
+	<meta name="text: Back Link URL" content="http://"/>   
+	<meta name="image: Back Link Image" content="http://static.tumblr.com/k26otqz/uHMn7dh7u/subblogs.png"/>   
 
 	<meta name="if:Show Header Navigation" content="1"/>    
 	<meta name="if:Form fewer columns" content="0"/>   
@@ -60,6 +59,7 @@
 	<meta name="image:Body background" content=""/>    
 	<meta name="text:Primary Google Font name" content="Source Sans Pro">    
 	<meta name="text:Secondary Google Font name" content="Montserrat">    
+	<meta name="text:Tertiary Google Font name" content="">    
 	<meta name="text:Google Analytics ID" content=''/>    
 	<meta name="text:Disqus shortname" content=""/>    
 	<meta name="text:SoundCloud link for Player" content=""/>    
@@ -126,8 +126,11 @@
 	<meta name="select:Menu" content="slide-panel" title="Slide">    
 	<meta name="select:Menu" content="pages" title="Disabled">    
 	<meta name="select:Menu" content="overlay" title="Overlay">
+
 	<link href='http://fonts.googleapis.com/css?family={text:Primary Google Font name}{block:IfLoadLatinSubsetFontIfAvailable}&subset=latin,latin-ext{/block:IfLoadLatinSubsetFontIfAvailable}' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family={text:Secondary Google Font name}{block:IfLoadLatinSubsetFontIfAvailable}&subset=latin,latin-ext{/block:IfLoadLatinSubsetFontIfAvailable}' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family={text:Tertiary Google Font name}{block:IfLoadLatinSubsetFontIfAvailable}&subset=latin,latin-ext{/block:IfLoadLatinSubsetFontIfAvailable}' rel='stylesheet' type='text/css'>
+
 	{block:Description} 
 	<meta name="description" content="{MetaDescription}"/>
 	{/block:Description} 
@@ -1500,8 +1503,12 @@
 
 		}
 
+		/* 
+				Fade Effect on button (disabled)
+		*/
+
 		#twitter-widget .twitter-follow-button:after {
-				display:block;
+				display:none;
 				position:absolute;
 				top:0px;
 				left:0px;
@@ -1521,7 +1528,7 @@
 
 
 		#twitter-widget .twitter-follow-button:active:after {
-
+			display:none;
 				background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.26) 100%); /* FF3.6+ */
 				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0.26))); /* Chrome,Safari4+ */
 				background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,0.26) 100%); /* Chrome10+,Safari5.1+ */
@@ -1693,6 +1700,7 @@
 			position:relative;
 			float:left;
 			left:0px;
+
 			text-align:left;
 		}
 
@@ -1710,7 +1718,8 @@
 
 			font-family: '{text:Secondary Google Font name}';
 			font-weight:250;
-		
+			
+			text-transform:uppercase;
 
 			opacity: .5;
 			filter: alpha(opacity=.5);
@@ -1746,11 +1755,6 @@
 				display:none;
 		}
 
-		@media screen and (max-width:1100px) {
-				#nav-header nav ul li {
-					padding:.75% 4%;
-				}
-		}
 
 		@media screen and (max-width:1000px) {
 
@@ -1760,6 +1764,10 @@
 
 				#nav-toggle-wrapper {
 					display:block;
+				}
+
+				#backlink {
+					display:none;
 				}
 
 		}
@@ -1820,7 +1828,9 @@
 
 		#backlink {
 				float:left;
+				padding:25px;
 
+				transition: .3s ease;
 				opacity: .8;
 				filter: alpha(opacity=.8);
 				-ms-filter: "alpha(Opacity=80)";
@@ -1840,6 +1850,7 @@
 
 			font-size:1.35em;
 			font-family: '{text:Secondary Google Font name}';
+			font-weight:700;
 			line-height:1.5em;
 			margin: 0 auto;
 
@@ -2186,20 +2197,17 @@
 		{block:IfShowHeaderNavigation} 
 		<div id="nav-header" class="hide-mobile" role="navigation">
 
-
-
-				<nav>
-
 				{block:IfShowBackLink} 
-				<li id="backlink">
+				<div id="backlink">
 
-				<a href="{text:Back Link Url}" class="direct-link" {Target}>
-				{text:Back Link Text} <img src="{image: Back Link Image}" alt="Back" /> 
-				</a>
+						<a href="{text:Back Link URL}" target="_blank">
+								<img src="{image: Back Link Image}" alt="Back" /> 
+						</a>
 
-				</li>
+				</div>
 				{/block:IfShowBackLink} 
 
+				<nav>
 
 				<ul>
 
@@ -2346,6 +2354,20 @@
 	      <nav>
 	        
 	        <ul class="{select:Masthead links style}">
+
+
+						{block:IfShowBackLink} 
+						<li id="backlink">
+
+						<a href="{text:Back Link URL}" target="_blank">
+								DESIGN &amp; DEMOCRACY
+						</a>
+
+						</li>
+
+						{/block:IfShowBackLink} 
+
+
 	          {block:IfNotMastheadSiteName}{block:IfNotMastheadAvatar}{block:IfNotMastheadLogoImage} 
 	          <li>
 	            <a href="/" title="{lang:Home}" id="site-name" {Target}>
@@ -2398,7 +2420,10 @@
 	              {lang:Random post}
 	            </a>
 	          </li>
-	          {/block:IfMastheadRandomPostLink} {block:IfDirectLinkUrlOne} 
+	          {/block:IfMastheadRandomPostLink} 
+
+
+				{block:IfDirectLinkUrlOne} 
 	          <li>
 	            
 	            <a href="{text:Direct link URL One}" class="direct-link" {Target}>
