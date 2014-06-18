@@ -23,6 +23,7 @@
 	<meta name="color:Secondary post hover effect" content="#f0bfb3"/>    
 	<meta name="if:Infinite scroll" content="1"/>   
 	<meta name="if:Twitter Widget" content="0"/>   
+	<meta name="if:Show Header Navigation" content="1"/>    
 	<meta name="if:Form fewer columns" content="0"/>   
 	<meta name="if:Index tags" content="0"/>    
 	<meta name="if:Index permalink label" content="0"/>    
@@ -1477,7 +1478,7 @@
 		#nav-toggle-wrapper {
 			width: 100%;	
 			position:fixed;
-			display: block;
+			display: none;
 			top:0px;
 			left:0px;
 			height:100px;
@@ -1572,13 +1573,86 @@
 
 		/* 
 
+				Header Navigation Menu 
+
+		*/
+
+		#nav-header {
+
+			width:100%;
+			min-width:500px;
+			max-width:1600px;
+			height:auto;
+
+			position:absolute;
+			left:50%;
+			top:0px;
+
+			-webkit-transform: translateX(-50%);
+			-ms-transform: translateX(-50%);
+			transform: translateX(-50%);			
+		
+			z-index:500;
+		
+		}
+
+		#nav-header nav {
+			display:block !important;
+			padding:25px;
+		}
+
+		#nav-header nav ul {
+			width:100%;
+	
+			display:table;
+			position:relative;
+			left:0px;
+			text-align:left;
+		}
+
+		#nav-header nav ul li {
+			display:inline-block;
+			list-style:none;		
+			text-align:center;
+
+
+			padding:.75% 4%;
+			border: 3px solid rgba(0,0,0,0);
+
+			cursor:pointer;
+			transition: all .2s ease;
+
+			font-family: '{text:Primary Google Font name}';
+			font-weight:500;
+
+
+			opacity: .75;
+			filter: alpha(opacity=.75);
+			-ms-filter: "alpha(Opacity=75)";
+		}
+
+		#nav-header nav ul li:hover, #nav-header nav ul li.active, #nav-header nav ul li.active a{
+
+			opacity: 1;
+			filter: alpha(opacity=1);
+			-ms-filter: "alpha(Opacity=100)";
+			color: {color:Menu Background};
+		}
+
+		#nav-header nav ul li.active {
+			border:3px solid {color:Menu Background};
+		}
+
+		/* 
+
 				Header
 
 		*/
 
 		#masthead {
 			width: 100%;
-			padding: 2% 10%;
+			padding: 1% 10%;
+			padding-top:80px;
 		}
 
 		#masthead #search input {
@@ -1599,53 +1673,6 @@
 			margin-left: -.1em;
 		}
 
-		#nav-header {
-
-			width:100%;
-			min-width:500px;
-			height:auto;
-		
-		}
-
-		#nav-header nav {
-			display:block !important;
-		}
-
-		#nav-header nav ul {
-			width:100%;
-			margin:0 auto;
-			display:table;
-			text-align:center;
-		}
-
-		#nav-header nav ul li {
-			display:inline-block;
-			list-style:none;		
-			text-align:center;
-
-
-			padding:.75% 4%;
-			border: 3px solid rgba(0,0,0,0);
-
-			cursor:pointer;
-			transition: all .2s ease;
-
-			opacity: .75;
-			filter: alpha(opacity=.75);
-			-ms-filter: "alpha(Opacity=75)";
-		}
-
-		#nav-header nav ul li:hover, #nav-header nav ul li.active, #nav-header nav ul li.active a{
-
-			opacity: 1;
-			filter: alpha(opacity=1);
-			-ms-filter: "alpha(Opacity=100)";
-			color: {color:Menu Background};
-		}
-
-		#nav-header nav ul li.active {
-			border:3px solid {color:Menu Background};
-		}
 
 
 		#description p {
@@ -1985,6 +2012,90 @@
 		</div>
 		{/block:IfTwitterWidget} 
 
+		<!-- Header Navigation -->
+		{block:IfShowHeaderNavigation} 
+		<div id="nav-header" class="hide-mobile" role="navigation">
+
+				<nav class="page-width">
+
+				<ul>
+
+				{block:HasPages}{block:Pages} 
+				<li>
+
+				<a href="{URL}" {Target}>
+				  {Label}
+				</a>
+				</li>
+				{/block:Pages}{/block:HasPages}
+
+				{block:IfDirectLinkUrlOne} 
+				<li>
+
+				<a href="{text:Direct link URL One}" class="direct-link" {Target}>
+				  {block:IfDirectLinkTitleOne}{text:Direct link title One}{/block:IfDirectLinkTitleOne} {block:IfNotDirectLinkTitleOne}{lang:Link}{/block:IfNotDirectLinkTitleOne} 
+				</a>
+
+				</li>
+				{/block:IfDirectLinkUrlOne} 
+
+				{block:IfDirectLinkUrlTwo} 
+				<li>
+
+				<a href="{text:Direct link URL Two}" class="direct-link" {Target}>
+				  {block:IfDirectLinkTitleTwo}{text:Direct link title Two}{/block:IfDirectLinkTitleTwo} {block:IfNotDirectLinkTitleTwo}{lang:Link}{/block:IfNotDirectLinkTitleTwo} 
+				</a>
+
+				</li>
+				{/block:IfDirectLinkUrlTwo} 
+
+				{block:IfDirectLinkUrlThree} 
+				<li>
+
+				<a href="{text:Direct link URL Three}" class="direct-link" {Target}>
+				  {block:IfDirectLinkTitleThree}{text:Direct link title Three}{/block:IfDirectLinkTitleThree} {block:IfNotDirectLinkTitleThree}{lang:Link}{/block:IfNotDirectLinkTitleThree} 
+				</a>
+
+				</li>
+				{/block:IfDirectLinkUrlThree} 
+
+				{block:IfDirectLinkUrlFour} 
+				<li>
+
+				<a href="{text:Direct link URL Four}" class="direct-link" {Target}>
+				  {block:IfDirectLinkTitleFour}{text:Direct link title Four}{/block:IfDirectLinkTitleFour} {block:IfNotDirectLinkTitleFour}{lang:Link}{/block:IfNotDirectLinkTitleFour} 
+				</a>
+
+				</li>
+				{/block:IfDirectLinkUrlFour} 
+
+				{block:IfDirectLinkUrlFive} 
+				<li>
+
+				<a href="{text:Direct link URL Five}" class="direct-link" {Target}>
+				  {block:IfDirectLinkTitleFive}{text:Direct link title Five}{/block:IfDirectLinkTitleFive} {block:IfNotDirectLinkTitleFive}{lang:Link}{/block:IfNotDirectLinkTitleFive} 
+				</a>
+
+				</li>
+				{/block:IfDirectLinkUrlFive} 
+
+				{block:IfDirectLinkUrlSix} 
+				<li>
+
+				<a href="{text:Direct link URL Six}" class="direct-link" {Target}>
+				  {block:IfDirectLinkTitleSix}{text:Direct link title Six}{/block:IfDirectLinkTitleSix} {block:IfNotDirectLinkTitleSix}{lang:Link}{/block:IfNotDirectLinkTitleSix} 
+				</a>
+
+				</li>
+				{/block:IfDirectLinkUrlSix} 
+				</ul>
+
+				</nav>
+
+		</div>
+		{/block:IfShowHeaderNavigation} 
+
+
 
 		<div id="nav-toggle-wrapper" class="nav-toggle-wrapper">
 
@@ -2166,90 +2277,6 @@
 	      
 	    </div>
 	    {/block:IfMastheadSearch} 
-
-		<!-- Header Navigation -->
-
-		<div id="nav-header" class="hide-mobile" role="navigation">
-
-		<nav class="page-width">
-
-		<ul>
-
-		{block:HasPages}{block:Pages} 
-		<li>
-
-		<a href="{URL}" {Target}>
-		  {Label}
-		</a>
-		</li>
-		{/block:Pages}{/block:HasPages}
-
-		{block:IfDirectLinkUrlOne} 
-		<li>
-
-		<a href="{text:Direct link URL One}" class="direct-link" {Target}>
-		  {block:IfDirectLinkTitleOne}{text:Direct link title One}{/block:IfDirectLinkTitleOne} {block:IfNotDirectLinkTitleOne}{lang:Link}{/block:IfNotDirectLinkTitleOne} 
-		</a>
-
-		</li>
-		{/block:IfDirectLinkUrlOne} 
-
-		{block:IfDirectLinkUrlTwo} 
-		<li>
-
-		<a href="{text:Direct link URL Two}" class="direct-link" {Target}>
-		  {block:IfDirectLinkTitleTwo}{text:Direct link title Two}{/block:IfDirectLinkTitleTwo} {block:IfNotDirectLinkTitleTwo}{lang:Link}{/block:IfNotDirectLinkTitleTwo} 
-		</a>
-
-		</li>
-		{/block:IfDirectLinkUrlTwo} 
-
-		{block:IfDirectLinkUrlThree} 
-		<li>
-
-		<a href="{text:Direct link URL Three}" class="direct-link" {Target}>
-		  {block:IfDirectLinkTitleThree}{text:Direct link title Three}{/block:IfDirectLinkTitleThree} {block:IfNotDirectLinkTitleThree}{lang:Link}{/block:IfNotDirectLinkTitleThree} 
-		</a>
-
-		</li>
-		{/block:IfDirectLinkUrlThree} 
-
-		{block:IfDirectLinkUrlFour} 
-		<li>
-
-		<a href="{text:Direct link URL Four}" class="direct-link" {Target}>
-		  {block:IfDirectLinkTitleFour}{text:Direct link title Four}{/block:IfDirectLinkTitleFour} {block:IfNotDirectLinkTitleFour}{lang:Link}{/block:IfNotDirectLinkTitleFour} 
-		</a>
-
-		</li>
-		{/block:IfDirectLinkUrlFour} 
-
-		{block:IfDirectLinkUrlFive} 
-		<li>
-
-		<a href="{text:Direct link URL Five}" class="direct-link" {Target}>
-		  {block:IfDirectLinkTitleFive}{text:Direct link title Five}{/block:IfDirectLinkTitleFive} {block:IfNotDirectLinkTitleFive}{lang:Link}{/block:IfNotDirectLinkTitleFive} 
-		</a>
-
-		</li>
-		{/block:IfDirectLinkUrlFive} 
-
-		{block:IfDirectLinkUrlSix} 
-		<li>
-
-		<a href="{text:Direct link URL Six}" class="direct-link" {Target}>
-		  {block:IfDirectLinkTitleSix}{text:Direct link title Six}{/block:IfDirectLinkTitleSix} {block:IfNotDirectLinkTitleSix}{lang:Link}{/block:IfNotDirectLinkTitleSix} 
-		</a>
-
-		</li>
-		{/block:IfDirectLinkUrlSix} 
-		</ul>
-
-		</nav>
-
-		</div>
-
-
 
 	  </header>
 
