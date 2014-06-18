@@ -5,7 +5,8 @@
   <head>
     
 	<!-- BLOG DETAILS: {Title} {BlogURL} THEME DETAILS: MarginPlus by Chris Nicholls -->
-	<meta name="color:Body background" content="#ffffff"/>    
+	<meta name="color:Body background" content="#ffffff"/>  
+	<meta name="color:Body highlight" content="#36bec7"/>  
 	<meta name="color:Post title" content="#f59f58"/>    
 	<meta name="color:Post links" content="#a7a7a7"/>    
 	<meta name="color:Post text" content="#555555"/>    
@@ -16,17 +17,22 @@
 	<meta name="color:Masthead text" content="#868686"/>    
 	<meta name="color:Masthead background" content="#242527"/>    
 	<meta name="color:Menu button" content="#ffffff"/>    
-	<meta name="color:Menu background" content="#332d28"/>    
+	<meta name="color:Menu background" content="#36bec7"/>    
 	<meta name="color:Menu links" content="#e8e8e8"/>    
 	<meta name="color:Accent" content="#2F3C6F"/>    
-	<meta name="color:Primary post hover effect" content="#ededed"/>    
+	<meta name="color:Primary post hover effect" content="#36bec7"/>    
 	<meta name="color:Secondary post hover effect" content="#f0bfb3"/>    
 	<meta name="if:Infinite scroll" content="1"/>   
 
 	<meta name="if:Twitter Widget" content="0"/>   
 	<meta name="text:Twitter Widget Text" content=""/>   
 	<meta name="text:Twitter Widget Handle" content=""/>   
-	<meta name="image:Twitter Widget Image" content="https://dev.twitter.com/sites/default/files/images_documentation/bird_gray_48.png"/>   
+	<meta name="image:Twitter Widget Image" content="http://static.tumblr.com/k26otqz/goWn7dc3a/bird_white.png"/>  
+
+	<meta name="if:Show Back Link" content="0"/>    
+	<meta name="text: Back Link Url" content="designdem.tumblr.com"/>   
+	<meta name="text: Back Link Text" content=""/>   
+	<meta name="image: Back Link Image" content="http://static.tumblr.com/k26otqz/wjYn7dg6z/subblogs.png"/>   
 
 	<meta name="if:Show Header Navigation" content="1"/>    
 	<meta name="if:Form fewer columns" content="0"/>   
@@ -1488,11 +1494,43 @@
 			padding:5px;
 			text-align:center;
 			overflow:hidden;
-			border: 1px solid rgba(255,255,255,.2);
+			border: 1px solid rgba(0,0,0,.2);
 			transition: all .3s;
 			box-shadow: inset 0px -3px 8px rgba(255,255,255,.2);
 
 		}
+
+		#twitter-widget .twitter-follow-button:after {
+				display:block;
+				position:absolute;
+				top:0px;
+				left:0px;
+
+				background: -moz-linear-gradient(top, rgba(255,255,255,0.26) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.26)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top, rgba(255,255,255,0.26) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top, rgba(255,255,255,0.26) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(top, rgba(255,255,255,0.26) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+				background: linear-gradient(to bottom, rgba(255,255,255,0.26) 0%,rgba(255,255,255,0) 100%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+
+				width:100%;
+				height:100%;
+				content:'';
+		}
+
+
+		#twitter-widget .twitter-follow-button:active:after {
+
+				background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.26) 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0.26))); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,0.26) 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,0.26) 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,0.26) 100%); /* IE10+ */
+				background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,0.26) 100%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#42ffffff',GradientType=0 ); /* IE6-9 */
+		}
+
 
 		#twitter-widget .twitter-follow-button span {
 
@@ -1505,14 +1543,11 @@
 		}
 
 		#twitter-widget .twitter-follow-button:hover {
-			box-shadow: inset 0px 3px 8px rgba(0,0,0,.2);
+			box-shadow: inset 0px 4px 8px rgba(0,0,0,.2);
 		}
 
 		#twitter-widget .twitter-follow-button:active {
-			box-shadow: inset 0px 3px 8px rgba(0,0,0,.4);
-		}
-		#twitter-widget .twitter-follow-button:active, #twitter-widget .twitter-follow-button:hover {
-				border: 1px solid rgba(0,0,0,.2);
+			box-shadow: inset 0px 4px 8px rgba(0,0,0,.4);
 		}
 
 
@@ -1654,10 +1689,9 @@
 		}
 
 		#nav-header nav ul {
-			width:100%;
-	
 			display:table;
 			position:relative;
+			float:left;
 			left:0px;
 			text-align:left;
 		}
@@ -1784,7 +1818,19 @@
 			margin-left: -.1em;
 		}
 
+		#backlink {
+				float:left;
 
+				opacity: .8;
+				filter: alpha(opacity=.8);
+				-ms-filter: "alpha(Opacity=80)";
+		}
+
+		#backlink:hover {
+				opacity: 1;
+				filter: alpha(opacity=1);
+				-ms-filter: "alpha(Opacity=100)";
+		}
 
 		#description p {
 			text-align:center;
@@ -2133,11 +2179,27 @@
 		</div>
 		{/block:IfTwitterWidget} 
 
+
+
+
 		<!-- Header Navigation -->
 		{block:IfShowHeaderNavigation} 
 		<div id="nav-header" class="hide-mobile" role="navigation">
 
+
+
 				<nav>
+
+				{block:IfShowBackLink} 
+				<li id="backlink">
+
+				<a href="{text:Back Link Url}" class="direct-link" {Target}>
+				{text:Back Link Text} <img src="{image: Back Link Image}" alt="Back" /> 
+				</a>
+
+				</li>
+				{/block:IfShowBackLink} 
+
 
 				<ul>
 
@@ -2149,6 +2211,7 @@
 				</a>
 				</li>
 				{/block:Pages}{/block:HasPages}
+
 
 				{block:IfDirectLinkUrlOne} 
 				<li>
