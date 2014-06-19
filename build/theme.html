@@ -143,8 +143,26 @@
     <link href="http://static.tumblr.com/wgijwsy/YZomlhwl6/normalize.min.css" rel="stylesheet" type="text/css"/>
 
     <style type="text/css">
-    @import "sprites.css";
-@import "sprites@2x.css";
+    /*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+```html
+<i class="icon-home"></i>
+```
+*/
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+```html
+<i class="icon-home"></i>
+```
+*/
+.icon-back {
+  background-image: url(../../../build/assets/sprites.png);
+  background-position: 0px 0px;
+  width: 259px;
+  height: 54px;
+}
 .ir {
   display: block;
   overflow: hidden;
@@ -445,6 +463,7 @@ a,
   opacity: 0;
   filter: alpha(opacity=0);
   z-index: 300;
+  cursor: pointer;
 }
 .index .post-hover a {
   background-size: 90px 30px;
@@ -2061,17 +2080,17 @@ ul {
     <article id="{PostID}" class=" hentry {block:Text}type-text content-text{/block:Text} {block:Photo}type-photo content-media{/block:Photo} {block:Photoset}type-photoset content-text{/block:Photoset} {block:Quote}type-quote content-text{/block:Quote} {block:Link}type-link content-text{/block:Link} {block:Chat}type-chat content-text{/block:Chat} {block:Video}type-video content-text{/block:Video} {block:Audio}type-audio content-text{/block:Audio} {block:Answer}type-answer content-text{/block:Answer} post-btn-{select:Post button icon set} " data-tags="{TagsAsClasses} null">
         <!--Post hover on the index page-->
         {block:Date}{block:IndexPage}{block:IfPostButtons} 
-        <ul class="post-hover {block:ContentSource}has_source{/block:ContentSource}" role="contentinfo">
-            <span class="special-effect hover-effect">
-            </span>
-            <li>
-                <a href="{Permalink}" class="permalink" {Target}>
-                <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}">
-                {DayOfMonth} {Month} {Year}
-                </time>
-                </a>
-            </li>
-        </ul>
+      	<ul class="post-hover {block:ContentSource}has_source{/block:ContentSource}" role="contentinfo" data-url="{Permalink}">
+          <span class="special-effect hover-effect">
+          </span>
+          <li>
+              <a href="{Permalink}" class="permalink" {Target}>
+              <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}">
+              {DayOfMonth} {Month} {Year}
+              </time>
+              </a>
+          </li>
+      	</ul>    
         {/block:IfPostButtons}{/block:IndexPage}{/block:Date} 
         <!--Post hover on the permalink page-->
         {block:Date}{block:PermalinkPage} 
@@ -2503,9 +2522,9 @@ ul {
         	menu                 :'{select:Menu}'
         };
     </script> 
-
+ 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
-    <script src="http://static.tumblr.com/k26otqz/kPhn78x2p/theme.min.js"></script> 
+    <script src="//static.tumblr.com/k26otqz/XUNn7f0pl/theme.min.js"></script> 
 
 
     <script>
@@ -2540,6 +2559,19 @@ ul {
         	        $(this).addClass("active");
         	        $(this).parent().addClass("active");
         	   }
+        	});
+
+        	/* 
+        		Clicking on hover box opens post
+        	*/
+
+        	$('ul.post-hover').fastClick(function() {
+
+
+        			href = $(this).attr('data-url');
+        			window.open (href,'_self',false);
+       
+
         	});
         
         

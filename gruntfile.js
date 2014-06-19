@@ -11,6 +11,7 @@ module.exports = function(grunt) {
         'grunt-contrib-watch',
         'grunt-contrib-uglify',
         'grunt-spritesmith',
+        'grunt-contrib-concat',
         'grunt-exec',
         'grunt-lesslint'
     ].forEach(function(task) { grunt.loadNpmTasks(task); });
@@ -22,15 +23,22 @@ module.exports = function(grunt) {
 
         sprite:{
             all: {
-                src: 'src/img/*.png',
+                src: 'src/img/sprites/*.png',
                 destImg: 'build/assets/sprites.png',
                 destCSS: 'src/css/frag/sprites.css'
             },
             retina: {
-                src: 'src/img/2x/*.png',
+                src: 'src/img/sprites/2x/*.png',
                 destImg: 'build/assets/sprites@2x.png',
                 destCSS: 'src/css/frag/sprites@2x.css'
             }
+        },
+
+        concat: {
+            dist: {
+                src: ['src/css/frag/sprites@2x.css', 'src/css/frag/sprites.css'],
+                dest: 'src/css/frag/sprites.less'
+            },
         },
 
         lesslint: {
@@ -51,7 +59,7 @@ module.exports = function(grunt) {
 
         watch: {
             scripts: {
-                files: ['src/**/*.less','src/*.html','src/js/*.js'],
+                files: ['src/**/*.less','src/*.html','src/js/*.js', 'src/img/*.*'],
                 tasks: ['default'],
                 options: {
                     debounceDelay: 2000
@@ -99,7 +107,7 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('parse', ['lesslint']);
-    grunt.registerTask('default', ['clean:build', 'sprite', 'less', 'cssmin', 'uglify', 'processhtml', 'exec']);
+    grunt.registerTask('default', ['clean:build', 'sprite', 'concat', 'less', 'cssmin', 'uglify', 'processhtml', 'exec']);
    
 };
 

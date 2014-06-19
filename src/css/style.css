@@ -1,5 +1,23 @@
-@import "sprites.css";
-@import "sprites@2x.css";
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+```html
+<i class="icon-home"></i>
+```
+*/
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+```html
+<i class="icon-home"></i>
+```
+*/
+.icon-back {
+  background-image: url(../../../build/assets/sprites.png);
+  background-position: 0px 0px;
+  width: 259px;
+  height: 54px;
+}
 .ir {
   display: block;
   overflow: hidden;
@@ -300,6 +318,7 @@ a,
   opacity: 0;
   filter: alpha(opacity=0);
   z-index: 300;
+  cursor: pointer;
 }
 .index .post-hover a {
   background-size: 90px 30px;
