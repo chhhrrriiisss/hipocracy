@@ -10,6 +10,8 @@ module.exports = function(grunt) {
         'grunt-contrib-less',
         'grunt-contrib-watch',
         'grunt-contrib-uglify',
+        'grunt-spritesmith',
+        'grunt-exec',
         'grunt-lesslint'
     ].forEach(function(task) { grunt.loadNpmTasks(task); });
 
@@ -17,6 +19,19 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
+
+        sprite:{
+            all: {
+                src: 'src/img/*.png',
+                destImg: 'build/assets/sprites.png',
+                destCSS: 'src/css/frag/sprites.css'
+            },
+            retina: {
+                src: 'src/img/2x/*.png',
+                destImg: 'build/assets/sprites@2x.png',
+                destCSS: 'src/css/frag/sprites@2x.css'
+            }
+        },
 
         lesslint: {
             src: ['src/**/*.less']
@@ -36,7 +51,7 @@ module.exports = function(grunt) {
 
         watch: {
             scripts: {
-                files: ['src/*.less','src/*.html','src/*.js'],
+                files: ['src/**/*.less','src/*.html','src/js/*.js'],
                 tasks: ['default'],
                 options: {
                     debounceDelay: 2000
@@ -55,6 +70,11 @@ module.exports = function(grunt) {
         },
 
         cssmin: {
+            options: {
+                banner: '/*\
+                Hipocracy - A custom tumblr theme by Chris Nicholls\
+                */'
+            },
             css: {
                 src: ['src/css/style.css'],
                 dest: 'src/css/style.min.css'
@@ -67,12 +87,19 @@ module.exports = function(grunt) {
                     'build/theme.html': ['src/theme.html']
                 }
             }
+        },
+
+        exec: {
+            copy_template: {
+                cmd: 'clip < build/theme.html'
+            }
         }
+
 
     });
 
     grunt.registerTask('parse', ['lesslint']);
-    grunt.registerTask('default', ['clean:build', 'less', 'cssmin', 'uglify', 'processhtml']);
+    grunt.registerTask('default', ['clean:build', 'sprite', 'less', 'cssmin', 'uglify', 'processhtml', 'exec']);
    
 };
 
