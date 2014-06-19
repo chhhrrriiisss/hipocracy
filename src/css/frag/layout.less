@@ -158,6 +158,18 @@ a,#credit {
     }
     .photo-url {
         text-align: center;
+
+        a {
+
+            img {
+
+                position:relative;
+                left:50%:
+                top:0px;
+                margin: 0 auto;
+                .transform(translateX(-50%));
+            }
+        }
     }
     .chat {
         li {
@@ -192,10 +204,13 @@ a,#credit {
         .opacity(0);
         z-index:300;
         cursor:pointer;
+
         a {
-            background-size: 90px 30px;
-            width: 30px;
-            height: 30px;
+            background-size: 32px 32px;
+            width: 32px;
+            height: 32px;
+            margin-top:-16px;
+            margin-left:-16px;
             z-index: 100;
             cursor:pointer;
             position: absolute;
@@ -203,71 +218,29 @@ a,#credit {
             top: 50%;
             left: 50%;
             .opacity(0);
+            .transform(translateY(30px));
+            .transition(all .3s);
+
+            &:active {
+                margin-top: -14px !important;
+            }
+        
         }
-        a:active {
-            margin-top: -14px !important;
-        }
-    }
-    .post-btn-modern {
-        .post-hover {
+
+        &:hover {
             a {
-                background-image: url(http://static.tumblr.com/79xqv9n/n6umyb7px/modern.png);
+
+                .transform(translateY(0px));
+                .opacity(100);
             }
         }
+
     }
-    .post-btn-sketch {
+    .post-btn {
         .post-hover {
             a {
-                background-image: url(http://static.tumblr.com/79xqv9n/D5rmyb7q0/sketch.png);
-            }
-        }
-    }
-    .post-btn-classic {
-        .post-hover {
-            a {
-                background-image: url(http://static.tumblr.com/79xqv9n/Wnbmyb6lo/classic.png);
-            }
-        }
-    }
-    .post-btn-cartoon {
-        .post-hover {
-            a {
-                background-image: url(http://static.tumblr.com/79xqv9n/Uvumyb6mi/cartoon_hover.png);
-            }
-        }
-    }
-    .post-btn-street {
-        .post-hover {
-            a {
-                background-image: url(http://static.tumblr.com/79xqv9n/uvzmyb6mr/street_hover.png);
-            }
-        }
-    }
-    .post-btn-borders-black {
-        .post-hover {
-            a {
-                background-image: url(http://static.tumblr.com/79xqv9n/eETmyb8ab/border.png);
-            }
-        }
-    }
-    .post-btn-borders-white {
-        .post-hover {
-            a {
-                background-image: url(http://static.tumblr.com/79xqv9n/nmYmyb9o5/borders_white.png);
-            }
-        }
-    }
-    .post-btn-flat-white {
-        .post-hover {
-            a {
-                background-image: url(http://static.tumblr.com/nrrlmzd/i4Zn3i9oc/flat_buttons_white.png);
-            }
-        }
-    }
-    .post-btn-flat-black {
-        .post-hover {
-            a {
-                background-image: url(http://static.tumblr.com/nrrlmzd/LAAn3i9of/flat_buttons.png);
+                background-image: url(http://static.tumblr.com/k26otqz/KuLn7f21r/sprites.png);
+                
             }
         }
     }
@@ -1366,7 +1339,10 @@ ul {
     padding: 0;
 }
 .content-media {
-    padding:0px !important;
+
+    &.content-index {
+        padding:0px !important;
+    }
 }
 #avatar {
     img {

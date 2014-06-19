@@ -28,8 +28,8 @@
 <meta name="image:Twitter Widget Image" content="http://static.tumblr.com/k26otqz/goWn7dc3a/bird_white.png"/>  
 
 <meta name="if:Show Back Link" content="0"/>    
-<meta name="text: Back Link URL" content="http://"/>   
-<meta name="image: Back Link Image" content="http://static.tumblr.com/k26otqz/uHMn7dh7u/subblogs.png"/>   
+<meta name="text:Back Link Target" content="http://designdem.tumblr.com"/>   
+<meta name="image:Back Link Image" content="http://static.tumblr.com/k26otqz/uHMn7dh7u/subblogs.png"/>   
 
 <meta name="if:Show Header Navigation" content="1"/>    
 <meta name="if:Form fewer columns" content="0"/>   
@@ -82,15 +82,6 @@
 <meta name="select:Font size" content="1.0em" title="Medium">    
 <meta name="select:Font size" content="1.1em" title="Large">    
 <meta name="select:Font size" content="1.2em" title="Huge">    
-<meta name="select:Post button icon set" content="classic" title="Classic">    
-<meta name="select:Post button icon set" content="modern" title="Modern">    
-<meta name="select:Post button icon set" content="sketch" title="Sketch">    
-<meta name="select:Post button icon set" content="cartoon" title="Cartoon">    
-<meta name="select:Post button icon set" content="street" title="Street">    
-<meta name="select:Post button icon set" content="borders-white" title="Borders in white">    
-<meta name="select:Post button icon set" content="borders-black" title="Borders in black">    
-<meta name="select:Post button icon set" content="flat-white" title="Flat in white">    
-<meta name="select:Post button icon set" content="flat-black" title="Flat in black">   
 
 <meta name="if:Post Timestamp In Day Month Year" content="0"/>   
 <meta name="if:Post Timestamp In Time Ago" content="1"/>   
@@ -150,6 +141,12 @@ Icon classes can be used entirely standalone. They are named after their origina
 <i class="icon-home"></i>
 ```
 */
+.icon-eye {
+  background-image: url(../../../build/assets/sprites@2x.png);
+  background-position: 0px 0px;
+  width: 64px;
+  height: 64px;
+}
 /*
 Icon classes can be used entirely standalone. They are named after their original file names.
 
@@ -157,11 +154,11 @@ Icon classes can be used entirely standalone. They are named after their origina
 <i class="icon-home"></i>
 ```
 */
-.icon-back {
+.icon-eye {
   background-image: url(../../../build/assets/sprites.png);
   background-position: 0px 0px;
-  width: 259px;
-  height: 54px;
+  width: 32px;
+  height: 32px;
 }
 .ir {
   display: block;
@@ -432,6 +429,17 @@ a,
 .index .photo-url {
   text-align: center;
 }
+.index .photo-url a img {
+  position: relative;
+  left: 50%:
+                top:0px;
+  margin: 0 auto;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
 .index .chat li {
   padding: 2% 0;
 }
@@ -466,9 +474,11 @@ a,
   cursor: pointer;
 }
 .index .post-hover a {
-  background-size: 90px 30px;
-  width: 30px;
-  height: 30px;
+  background-size: 32px 32px;
+  width: 32px;
+  height: 32px;
+  margin-top: -16px;
+  margin-left: -16px;
   z-index: 100;
   cursor: pointer;
   position: absolute;
@@ -477,36 +487,31 @@ a,
   left: 50%;
   opacity: 0;
   filter: alpha(opacity=0);
+  -webkit-transform: translateY(30px);
+  -moz-transform: translateY(30px);
+  -ms-transform: translateY(30px);
+  -o-transform: translateY(30px);
+  transform: translateY(30px);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
 }
 .index .post-hover a:active {
   margin-top: -14px !important;
 }
-.index .post-btn-modern .post-hover a {
-  background-image: url(http://static.tumblr.com/79xqv9n/n6umyb7px/modern.png);
+.index .post-hover:hover a {
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  -o-transform: translateY(0px);
+  transform: translateY(0px);
+  opacity: 1;
+  filter: alpha(opacity=100);
 }
-.index .post-btn-sketch .post-hover a {
-  background-image: url(http://static.tumblr.com/79xqv9n/D5rmyb7q0/sketch.png);
-}
-.index .post-btn-classic .post-hover a {
-  background-image: url(http://static.tumblr.com/79xqv9n/Wnbmyb6lo/classic.png);
-}
-.index .post-btn-cartoon .post-hover a {
-  background-image: url(http://static.tumblr.com/79xqv9n/Uvumyb6mi/cartoon_hover.png);
-}
-.index .post-btn-street .post-hover a {
-  background-image: url(http://static.tumblr.com/79xqv9n/uvzmyb6mr/street_hover.png);
-}
-.index .post-btn-borders-black .post-hover a {
-  background-image: url(http://static.tumblr.com/79xqv9n/eETmyb8ab/border.png);
-}
-.index .post-btn-borders-white .post-hover a {
-  background-image: url(http://static.tumblr.com/79xqv9n/nmYmyb9o5/borders_white.png);
-}
-.index .post-btn-flat-white .post-hover a {
-  background-image: url(http://static.tumblr.com/nrrlmzd/i4Zn3i9oc/flat_buttons_white.png);
-}
-.index .post-btn-flat-black .post-hover a {
-  background-image: url(http://static.tumblr.com/nrrlmzd/LAAn3i9of/flat_buttons.png);
+.index .post-btn .post-hover a {
+  background-image: url(http://static.tumblr.com/k26otqz/KuLn7f21r/sprites.png);
 }
 .index .post-hover:hover a {
   opacity: 1;
@@ -1640,7 +1645,7 @@ ul {
 .content-media {
   padding: 0;
 }
-.content-media {
+.content-media.content-index {
   padding: 0px !important;
 }
 #avatar img {
@@ -1812,8 +1817,8 @@ ul {
     <div id="nav-header" class="hide-mobile" role="navigation">
         {block:IfShowBackLink} 
         <div id="backlink">
-            <a href="{text:Back Link URL}" target="_blank">
-            <img src="{image: Back Link Image}" alt="Back" /> 
+            <a href="{text:Back Link Target}" target="_parent">
+            <img src="{image:Back Link Image}" alt="Back" /> 
             </a>
         </div>
         {/block:IfShowBackLink} 
@@ -2077,7 +2082,7 @@ ul {
     {block:Posts} 
 
 
-    <article id="{PostID}" class=" hentry {block:Text}type-text content-text{/block:Text} {block:Photo}type-photo content-media{/block:Photo} {block:Photoset}type-photoset content-text{/block:Photoset} {block:Quote}type-quote content-text{/block:Quote} {block:Link}type-link content-text{/block:Link} {block:Chat}type-chat content-text{/block:Chat} {block:Video}type-video content-text{/block:Video} {block:Audio}type-audio content-text{/block:Audio} {block:Answer}type-answer content-text{/block:Answer} post-btn-{select:Post button icon set} " data-tags="{TagsAsClasses} null">
+    <article id="{PostID}" class=" hentry {block:Text}type-text content-text{/block:Text} {block:Photo}type-photo content-media {block:IndexPage}content-index{/block:IndexPage}{/block:Photo} {block:Photoset}type-photoset content-text{/block:Photoset} {block:Quote}type-quote content-text{/block:Quote} {block:Link}type-link content-text{/block:Link} {block:Chat}type-chat content-text{/block:Chat} {block:Video}type-video content-text{/block:Video} {block:Audio}type-audio content-text{/block:Audio} {block:Answer}type-answer content-text{/block:Answer} post-btn" data-tags="{TagsAsClasses} null" data-url="{Permalink}">
         <!--Post hover on the index page-->
         {block:Date}{block:IndexPage}{block:IfPostButtons} 
       	<ul class="post-hover {block:ContentSource}has_source{/block:ContentSource}" role="contentinfo" data-url="{Permalink}">
@@ -2567,10 +2572,15 @@ ul {
 
         	$('ul.post-hover').fastClick(function() {
 
+        			href = $(this).attr('data-url');
+        			window.open (href,'_self',false);       
+
+        	});
+
+        	$('article').fastClick(function() {
 
         			href = $(this).attr('data-url');
-        			window.open (href,'_self',false);
-       
+        			window.open (href,'_self',false);      
 
         	});
         
