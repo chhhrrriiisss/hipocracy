@@ -2,24 +2,31 @@
 <html {block:English}lang="en"{/block:English}>
 <head>
 
+
+
     <!-- BLOG DETAILS: {Title} {BlogURL} THEME DETAILS: MarginPlus by Chris Nicholls -->
 <meta name="color:Body background" content="#ffffff"/>  
 <meta name="color:Body highlight" content="#36bec7"/>  
-<meta name="color:Post title" content="#f59f58"/>    
+<meta name="color:Post title" content="#000"/>    
 <meta name="color:Post links" content="#a7a7a7"/>    
 <meta name="color:Post text" content="#555555"/>    
 <meta name="color:Post background" content="#ffffff"/>    
 <meta name="color:Text widget background" content="#E7E7E7"/>    
 <meta name="color:Masthead title" content="#ffffff"/>    
-<meta name="color:Masthead links" content="#c5c5c5"/>    
+<meta name="color:Masthead links" content="#c5c5c5"/>     
 <meta name="color:Masthead text" content="#868686"/>    
-<meta name="color:Masthead background" content="#242527"/>    
+<meta name="color:Masthead background" content="#242527"/>   
+
+<meta name="color:Description Background" content="#fff"/>    
+<meta name="color:Description Text" content="#000"/>    
+<meta name="if:Description Overlays Masthead" content="0"/>   
+
+
 <meta name="color:Menu button" content="#ffffff"/>    
 <meta name="color:Menu background" content="#36bec7"/>    
 <meta name="color:Menu links" content="#e8e8e8"/>    
-<meta name="color:Accent" content="#2F3C6F"/>    
+<meta name="color:Accent" content="transparent"/>    
 <meta name="color:Primary post hover effect" content="#36bec7"/>    
-<meta name="color:Secondary post hover effect" content="#f0bfb3"/>    
 <meta name="if:Infinite scroll" content="1"/>   
 
 <meta name="if:Twitter Widget" content="0"/>   
@@ -51,17 +58,16 @@
 <meta name="if:Masthead title" content="0"/>    
 <meta name="if:Post title centered" content="0"/>    
 <meta name="if:Post buttons" content="1"/>    
-<meta name="image:Masthead image" content=""/>    
 <meta name="image:Masthead logo" content=""/>    
-<meta name="image:Masthead background" content=""/>    
+<meta name="image:Masthead background" content="http://static.tumblr.com/k26otqz/HhWn7gdhl/tumblr_static_6ua4jcwzt3ocgcwc0c0gwsooo.jpg" />    
 <meta name="image:Body background" content=""/>    
 
 <meta name="text:Read more text" content='Read more'/>   
 
-<meta name="text:Primary Google Font name" content="Source Sans Pro">    
-<meta name="text:Secondary Google Font name" content="Montserrat">    
+<meta name="text:Primary Typekit Font name" content="Lato">    
+<meta name="text:Secondary Typekit Font name" content="DejaRip">    
+
 <meta name="text:Google Analytics ID" content=''/>    
-<meta name="text:Disqus shortname" content=""/>    
 <meta name="text:SoundCloud link for Player" content=""/>    
 <meta name="text:Direct link URL one" content=''/>    
 <meta name="text:Direct link title one" content=''/>    
@@ -118,6 +124,7 @@
 
     <link href='http://fonts.googleapis.com/css?family={text:Primary Google Font name}{block:IfLoadLatinSubsetFontIfAvailable}&subset=latin,latin-ext{/block:IfLoadLatinSubsetFontIfAvailable}' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family={text:Secondary Google Font name}{block:IfLoadLatinSubsetFontIfAvailable}&subset=latin,latin-ext{/block:IfLoadLatinSubsetFontIfAvailable}' rel='stylesheet' type='text/css'>
+
     {block:Description} 
     <meta name="description" content="{MetaDescription}"/>
     {/block:Description} 
@@ -132,6 +139,10 @@
     <link rel="apple-touch-icon" href="{PortraitURL-128}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
     <link href="http://static.tumblr.com/wgijwsy/YZomlhwl6/normalize.min.css" rel="stylesheet" type="text/css"/>
+
+
+    <script type="text/javascript" src="//use.typekit.net/wtb0ido.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
     <style type="text/css">
     /*
@@ -252,13 +263,20 @@ iframe {
   position: relative;
 }
 html {
-  font-family: {text:Primary Google Font name};
+  font-family: {text:Secondary Typekit Font name};
   -webkit-text-size-adjust: none;
 }
-#masthead {
-  font-family: {text:Secondary Google Font name};
+#masthead-wrapper {
   background-color: {color:Masthead background};
   background-image: url({image:Masthead background});
+  background-repeat: repeat-y;
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+#masthead {
+  font-family: {text:Secondary Typekit Font name};
   color: {color:Masthead text};
   width: 100%;
   padding: 1% 10%;
@@ -1352,7 +1370,7 @@ ul {
   top: 25px;
   right: 25px;
   z-index: 301;
-  min-width: 190px;
+  min-width: 50px;
   height: 50px;
 }
 #twitter-widget .twitter-follow-button {
@@ -1564,7 +1582,7 @@ ul {
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
   transition: all .2s ease;
-  font-family: {text:Secondary Google Font name};
+  font-family: {text:Secondary Typekit Font name};
   font-weight: 250;
   font-size: 0.9em;
   text-transform: uppercase;
@@ -1613,11 +1631,8 @@ ul {
 #description {
   margin-top: 0px;
   width: 100%;
-  background: rgba(0, 0, 0, 0.08);
   padding: 3% 10%;
-  -webkit-box-shadow: inset 0px 5px 20px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: inset 0px 5px 20px rgba(0, 0, 0, 0.25);
-  box-shadow: inset 0px 5px 20px rgba(0, 0, 0, 0.25);
+  position: relative;
 }
 #description p {
   text-align: center;
@@ -1625,10 +1640,25 @@ ul {
   max-width: 700px;
   min-width: 280px;
   font-size: 1.45em;
-  font-family: {text:Secondary Google Font name};
+  font-family: {text:Primary Typekit Font name};
   font-weight: bold;
   line-height: 1.5em;
   margin: 0 auto;
+  color: {color:Description Text};
+  z-index: 300;
+}
+#description .bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  content: '';
+  display: block;
+  background: {color:Description Background};
+  z-index: 20;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
 }
 .content-text,
 .content-media,
@@ -1801,10 +1831,13 @@ ul {
 
     <style> {CustomCSS} </style>
 
+
+
 </head>
+
 <body class="{block:PermalinkPage}permalink{/block:PermalinkPage} {block:IndexPage}index{/block:IndexPage} fixed-masthead {block:IfFormFewerColumns}three-col{/block:IfFormFewerColumns} {block:IfNotFormFewerColumns}four-col{/block:IfNotFormFewerColumns} {select:Body background} {select:Masthead background} masthead-effect-{select:Masthead effect} post-effect-{select:Post hover effect} menu-{select:Menu} {block:IfPostTitleCentered}entry-title-centered{/block:IfPostTitleCentered} link-normal link-special animate {select:Photo filter} masthead-effect-{select:Masthead effect} {block:PermalinkPage}permalink{/block:PermalinkPage} {block:IndexPage}index{/block:IndexPage} fixed-masthead {block:IfFormFewerColumns}three-col{/block:IfFormFewerColumns} {block:IfNotFormFewerColumns}four-col{/block:IfNotFormFewerColumns} {select:Body background} {select:Masthead background} masthead-effect-{select:Masthead effect} post-effect-{select:Post hover effect} menu-{select:Menu} {block:IfPostTitleCentered}entry-title-centered{/block:IfPostTitleCentered} link-normal link-special animate {select:Photo filter} {/block:IfNotLinkToOlleOtaThemes}">
 
-		<!-- Twitter Widget -->
+	<!-- Twitter Widget -->
     {block:IfTwitterWidget} 
     <div id="twitter-widget">
         <a href="https://twitter.com/intent/user?screen_name={text:Twitter Widget Handle}" target="_blank" class="twitter-follow-button" data-width="100%" data-show-count="false" data-lang="en"><span>{text:Twitter Widget Text}</span><img src="{image:Twitter Widget Image}" alt="Twitter" /></a>
@@ -1896,156 +1929,159 @@ ul {
     </span>
 
     <!-- Mastheat -->
-    <header id="masthead" class="null" role="banner">
-        <span id="masthead-effect" class="special-effect persistent-effect">
-        </span>
-        {block:IfMastheadImageImage} 
-        <div class="widget" id="masthead-image">
-            <img src="{image:Masthead image}"/>
-        </div>
-        {/block:IfMastheadImageImage} 
-        <div id="site-info" class="widget">
-            {block:IfMastheadLogoImage} 
-            <a href="/" title="{lang:Home}" {Target}>
-            <img src="{image:Masthead logo}" id="custom_logo"/>
-            </a>
-            {/block:IfMastheadLogoImage} {block:IfNotMastheadLogoImage} {block:IfMastheadAvatar} 
-            <div id="avatar" class="widget {select:Avatar style}">
+
+    <div id="masthead-wrapper" class-"header-wrap">
+
+        <header id="masthead" class="null" role="banner">
+
+            <div id="site-info" class="widget">
+                {block:IfMastheadLogoImage} 
                 <a href="/" title="{lang:Home}" {Target}>
-                <img src="{PortraitURL-128}">
+                <img src="{image:Masthead logo}" id="custom_logo"/>
                 </a>
+                {/block:IfMastheadLogoImage} {block:IfNotMastheadLogoImage} {block:IfMastheadAvatar} 
+                <div id="avatar" class="widget {select:Avatar style}">
+                    <a href="/" title="{lang:Home}" {Target}>
+                    <img src="{PortraitURL-128}">
+                    </a>
+                </div>
+                {/block:IfMastheadAvatar} {/block:IfNotMastheadLogoImage} {block:IfMastheadTitle} {block:IfMastheadSiteName}
+                <h1 class="{select:Masthead title style}">
+                    <a href="/" title="{lang:Home}" id="site-name" {Target} role="heading">
+                    {Title}
+                    </a>
+                </h1>
+                {/block:IfMastheadSiteName} {/block:IfMastheadTitle}
             </div>
-            {/block:IfMastheadAvatar} {/block:IfNotMastheadLogoImage} {block:IfMastheadTitle} {block:IfMastheadSiteName}
-            <h1 class="{select:Masthead title style}">
-                <a href="/" title="{lang:Home}" id="site-name" {Target} role="heading">
-                {Title}
-                </a>
-            </h1>
-            {/block:IfMastheadSiteName} {/block:IfMastheadTitle}
-        </div>
 
-        <!-- Nav Header -->
-        <div id="{select:Menu}" class="widget" role="navigation">
-            <nav>
-                <ul class="{select:Masthead links style}">
-                    {block:IfShowBackLink} 
-                    <li id="backlink">
-                        <a href="{text:Back Link URL}" target="_blank">
-                        DESIGN &amp; DEMOCRACY
-                        </a>
-                    </li>
-                    {/block:IfShowBackLink} 
-                    {block:IfNotMastheadSiteName}{block:IfNotMastheadAvatar}{block:IfNotMastheadLogoImage} 
-                    <li>
-                        <a href="/" title="{lang:Home}" id="site-name" {Target}>
-                        {Title}
-                        </a>
-                    </li>
-                    {/block:IfNotMastheadLogoImage}{/block:IfNotMastheadAvatar}{/block:IfNotMastheadSiteName} {block:HasPages}{block:Pages} 
-                    <li>
-                        <a href="{URL}" {Target}>
-                        {Label}
-                        </a>
-                    </li>
-                    {/block:Pages}{/block:HasPages} {block:SubmissionsEnabled} 
-                    <li>
-                        <a href="/submit" {Target}>
-                        {SubmitLabel}
-                        </a>
-                    </li>
-                    {/block:SubmissionsEnabled} {block:AskEnabled} 
-                    <li>
-                        <a href="/ask" {Target}>
-                        {AskLabel}
-                        </a>
-                    </li>
-                    {/block:AskEnabled} {block:IfLinkToOlleOtaThemes} 
-                    <li>
-                        <a href="http://olleotathemes.tumblr.com/" {Target} rel="nofollow" title="{Title} uses Margin by Olle Ota">
-                        Theme
-                        </a>
-                    </li>
-                    {/block:IfLinkToOlleOtaThemes} {block:IfMastheadRSSLink} 
-                    <li>
-                        <a href="{RSS}" id="rss" title="{lang:Subscribe via RSS}" {Target}>
-                        {lang:RSS}
-                        </a>
-                    </li>
-                    {/block:IfMastheadRSSLink} {block:IfMastheadArchiveLink} 
-                    <li>
-                        <a href="/archive" id="archive" title="{lang:Browse the archive}" {Target}>
-                        {lang:Archive}
-                        </a>
-                    </li>
-                    {/block:IfMastheadArchiveLink} {block:IfMastheadRandomPostLink} 
-                    <li>
-                        <a href="/random" id="random" rel="nofollow" {Target}>
-                        {lang:Random post}
-                        </a>
-                    </li>
-                    {/block:IfMastheadRandomPostLink} 
-                    {block:IfDirectLinkUrlOne} 
-                    <li>
-                        <a href="{text:Direct link URL One}" class="direct-link" {Target}>
-                        {block:IfDirectLinkTitleOne}{text:Direct link title One}{/block:IfDirectLinkTitleOne} {block:IfNotDirectLinkTitleOne}{lang:Link}{/block:IfNotDirectLinkTitleOne} 
-                        </a>
-                    </li>
-                    {/block:IfDirectLinkUrlOne} {block:IfDirectLinkUrlTwo} 
-                    <li>
-                        <a href="{text:Direct link URL Two}" class="direct-link" {Target}>
-                        {block:IfDirectLinkTitleTwo}{text:Direct link title Two}{/block:IfDirectLinkTitleTwo} {block:IfNotDirectLinkTitleTwo}{lang:Link}{/block:IfNotDirectLinkTitleTwo} 
-                        </a>
-                    </li>
-                    {/block:IfDirectLinkUrlTwo} {block:IfDirectLinkUrlThree} 
-                    <li>
-                        <a href="{text:Direct link URL Three}" class="direct-link" {Target}>
-                        {block:IfDirectLinkTitleThree}{text:Direct link title Three}{/block:IfDirectLinkTitleThree} {block:IfNotDirectLinkTitleThree}{lang:Link}{/block:IfNotDirectLinkTitleThree} 
-                        </a>
-                    </li>
-                    {/block:IfDirectLinkUrlThree} {block:IfDirectLinkUrlFour} 
-                    <li>
-                        <a href="{text:Direct link URL Four}" class="direct-link" {Target}>
-                        {block:IfDirectLinkTitleFour}{text:Direct link title Four}{/block:IfDirectLinkTitleFour} {block:IfNotDirectLinkTitleFour}{lang:Link}{/block:IfNotDirectLinkTitleFour} 
-                        </a>
-                    </li>
-                    {/block:IfDirectLinkUrlFour} {block:IfDirectLinkUrlFive} 
-                    <li>
-                        <a href="{text:Direct link URL Five}" class="direct-link" {Target}>
-                        {block:IfDirectLinkTitleFive}{text:Direct link title Five}{/block:IfDirectLinkTitleFive} {block:IfNotDirectLinkTitleFive}{lang:Link}{/block:IfNotDirectLinkTitleFive} 
-                        </a>
-                    </li>
-                    {/block:IfDirectLinkUrlFive} {block:IfDirectLinkUrlSix} 
-                    <li>
-                        <a href="{text:Direct link URL Six}" class="direct-link" {Target}>
-                        {block:IfDirectLinkTitleSix}{text:Direct link title Six}{/block:IfDirectLinkTitleSix} {block:IfNotDirectLinkTitleSix}{lang:Link}{/block:IfNotDirectLinkTitleSix} 
-                        </a>
-                    </li>
-                    {/block:IfDirectLinkUrlSix} 
-                </ul>
-            </nav>
-        </div>
-        {block:IfMastheadSearch} 
-        <div id="search" class="widget" role="search">
-            <form action="/search" method="get">
-                <input type="search" name="q" value="{SearchQuery}" type="search" id="search_box" placeholder="{lang:Search}">
-            </form>
-        </div>
-        {/block:IfMastheadSearch} 
-    </header>
+            <!-- Nav Header -->
+            <div id="{select:Menu}" class="widget" role="navigation">
+                <nav>
+                    <ul class="{select:Masthead links style}">
+                        {block:IfShowBackLink} 
+                        <li id="backlink">
+                            <a href="{text:Back Link URL}" target="_blank">
+                            DESIGN &amp; DEMOCRACY
+                            </a>
+                        </li>
+                        {/block:IfShowBackLink} 
+                        {block:IfNotMastheadSiteName}{block:IfNotMastheadAvatar}{block:IfNotMastheadLogoImage} 
+                        <li>
+                            <a href="/" title="{lang:Home}" id="site-name" {Target}>
+                            {Title}
+                            </a>
+                        </li>
+                        {/block:IfNotMastheadLogoImage}{/block:IfNotMastheadAvatar}{/block:IfNotMastheadSiteName} {block:HasPages}{block:Pages} 
+                        <li>
+                            <a href="{URL}" {Target}>
+                            {Label}
+                            </a>
+                        </li>
+                        {/block:Pages}{/block:HasPages} {block:SubmissionsEnabled} 
+                        <li>
+                            <a href="/submit" {Target}>
+                            {SubmitLabel}
+                            </a>
+                        </li>
+                        {/block:SubmissionsEnabled} {block:AskEnabled} 
+                        <li>
+                            <a href="/ask" {Target}>
+                            {AskLabel}
+                            </a>
+                        </li>
+                        {/block:AskEnabled} {block:IfLinkToOlleOtaThemes} 
+                        <li>
+                            <a href="http://olleotathemes.tumblr.com/" {Target} rel="nofollow" title="{Title} uses Margin by Olle Ota">
+                            Theme
+                            </a>
+                        </li>
+                        {/block:IfLinkToOlleOtaThemes} {block:IfMastheadRSSLink} 
+                        <li>
+                            <a href="{RSS}" id="rss" title="{lang:Subscribe via RSS}" {Target}>
+                            {lang:RSS}
+                            </a>
+                        </li>
+                        {/block:IfMastheadRSSLink} {block:IfMastheadArchiveLink} 
+                        <li>
+                            <a href="/archive" id="archive" title="{lang:Browse the archive}" {Target}>
+                            {lang:Archive}
+                            </a>
+                        </li>
+                        {/block:IfMastheadArchiveLink} {block:IfMastheadRandomPostLink} 
+                        <li>
+                            <a href="/random" id="random" rel="nofollow" {Target}>
+                            {lang:Random post}
+                            </a>
+                        </li>
+                        {/block:IfMastheadRandomPostLink} 
+                        {block:IfDirectLinkUrlOne} 
+                        <li>
+                            <a href="{text:Direct link URL One}" class="direct-link" {Target}>
+                            {block:IfDirectLinkTitleOne}{text:Direct link title One}{/block:IfDirectLinkTitleOne} {block:IfNotDirectLinkTitleOne}{lang:Link}{/block:IfNotDirectLinkTitleOne} 
+                            </a>
+                        </li>
+                        {/block:IfDirectLinkUrlOne} {block:IfDirectLinkUrlTwo} 
+                        <li>
+                            <a href="{text:Direct link URL Two}" class="direct-link" {Target}>
+                            {block:IfDirectLinkTitleTwo}{text:Direct link title Two}{/block:IfDirectLinkTitleTwo} {block:IfNotDirectLinkTitleTwo}{lang:Link}{/block:IfNotDirectLinkTitleTwo} 
+                            </a>
+                        </li>
+                        {/block:IfDirectLinkUrlTwo} {block:IfDirectLinkUrlThree} 
+                        <li>
+                            <a href="{text:Direct link URL Three}" class="direct-link" {Target}>
+                            {block:IfDirectLinkTitleThree}{text:Direct link title Three}{/block:IfDirectLinkTitleThree} {block:IfNotDirectLinkTitleThree}{lang:Link}{/block:IfNotDirectLinkTitleThree} 
+                            </a>
+                        </li>
+                        {/block:IfDirectLinkUrlThree} {block:IfDirectLinkUrlFour} 
+                        <li>
+                            <a href="{text:Direct link URL Four}" class="direct-link" {Target}>
+                            {block:IfDirectLinkTitleFour}{text:Direct link title Four}{/block:IfDirectLinkTitleFour} {block:IfNotDirectLinkTitleFour}{lang:Link}{/block:IfNotDirectLinkTitleFour} 
+                            </a>
+                        </li>
+                        {/block:IfDirectLinkUrlFour} {block:IfDirectLinkUrlFive} 
+                        <li>
+                            <a href="{text:Direct link URL Five}" class="direct-link" {Target}>
+                            {block:IfDirectLinkTitleFive}{text:Direct link title Five}{/block:IfDirectLinkTitleFive} {block:IfNotDirectLinkTitleFive}{lang:Link}{/block:IfNotDirectLinkTitleFive} 
+                            </a>
+                        </li>
+                        {/block:IfDirectLinkUrlFive} {block:IfDirectLinkUrlSix} 
+                        <li>
+                            <a href="{text:Direct link URL Six}" class="direct-link" {Target}>
+                            {block:IfDirectLinkTitleSix}{text:Direct link title Six}{/block:IfDirectLinkTitleSix} {block:IfNotDirectLinkTitleSix}{lang:Link}{/block:IfNotDirectLinkTitleSix} 
+                            </a>
+                        </li>
+                        {/block:IfDirectLinkUrlSix} 
+                    </ul>
+                </nav>
+            </div>
+            {block:IfMastheadSearch} 
+            <div id="search" class="widget" role="search">
+                <form action="/search" method="get">
+                    <input type="search" name="q" value="{SearchQuery}" type="search" id="search_box" placeholder="{lang:Search}">
+                </form>
+            </div>
+            {/block:IfMastheadSearch} 
 
+        </header>
 
-    <!--Description Wrapper -->
-    {block:IndexPage}
-    {block:IfMastheadDescription} {block:Description} 
-    <div id="description" class="description-wrapper">
-        <p>
-            {Description}
-        </p>
+         <!--Description Header Wrapper -->
+        {block:IndexPage}
+        {block:IfMastheadDescription}     
+        {block:Description} 
+        <div id="description" class="description-wrapper {block:IfDescriptionOverlaysMasthead}overlay-masthead{/block:IfDescriptionOverlaysMasthead}">
+            <p>
+                {Description}
+            </p>
+
+            <div class="bg"></div>
+        </div>
+        {/block:Description}
+        {/block:IfMastheadDescription}     
+        {/block:IndexPage}    
+
     </div>
-    {/block:Description}
-    {/block:IfMastheadDescription} 
-    {/block:IndexPage}
 
+   
 
     <!-- Content Wrapper -->
     <div id="wrapper" class="{select:Post title style}">
@@ -2599,6 +2635,9 @@ ul {
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
         </script> {/block:IfGoogleAnalyticsID} -->
+
+
+
 
 </body>
 </html>

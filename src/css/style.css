@@ -116,13 +116,20 @@ iframe {
   position: relative;
 }
 html {
-  font-family: {text:Primary Google Font name};
+  font-family: {text:Secondary Typekit Font name};
   -webkit-text-size-adjust: none;
 }
-#masthead {
-  font-family: {text:Secondary Google Font name};
+#masthead-wrapper {
   background-color: {color:Masthead background};
   background-image: url({image:Masthead background});
+  background-repeat: repeat-y;
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+#masthead {
+  font-family: {text:Secondary Typekit Font name};
   color: {color:Masthead text};
   width: 100%;
   padding: 1% 10%;
@@ -1216,7 +1223,7 @@ ul {
   top: 25px;
   right: 25px;
   z-index: 301;
-  min-width: 190px;
+  min-width: 50px;
   height: 50px;
 }
 #twitter-widget .twitter-follow-button {
@@ -1428,7 +1435,7 @@ ul {
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
   transition: all .2s ease;
-  font-family: {text:Secondary Google Font name};
+  font-family: {text:Secondary Typekit Font name};
   font-weight: 250;
   font-size: 0.9em;
   text-transform: uppercase;
@@ -1477,11 +1484,8 @@ ul {
 #description {
   margin-top: 0px;
   width: 100%;
-  background: rgba(0, 0, 0, 0.08);
   padding: 3% 10%;
-  -webkit-box-shadow: inset 0px 5px 20px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: inset 0px 5px 20px rgba(0, 0, 0, 0.25);
-  box-shadow: inset 0px 5px 20px rgba(0, 0, 0, 0.25);
+  position: relative;
 }
 #description p {
   text-align: center;
@@ -1489,10 +1493,25 @@ ul {
   max-width: 700px;
   min-width: 280px;
   font-size: 1.45em;
-  font-family: {text:Secondary Google Font name};
+  font-family: {text:Primary Typekit Font name};
   font-weight: bold;
   line-height: 1.5em;
   margin: 0 auto;
+  color: {color:Description Text};
+  z-index: 300;
+}
+#description .bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  content: '';
+  display: block;
+  background: {color:Description Background};
+  z-index: 20;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
 }
 .content-text,
 .content-media,
