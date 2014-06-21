@@ -36,7 +36,7 @@
 
 <meta name="if:Show Back Link" content="0"/>    
 <meta name="text:Back Link Target" content="http://designdem.tumblr.com"/>   
-<meta name="image:Back Link Image" content="http://static.tumblr.com/k26otqz/uHMn7dh7u/subblogs.png"/>   
+<meta name="image:Back Link Image" content="http://static.tumblr.com/k26otqz/hvGn7hw5f/backlink_logo.png"/>   
 
 <meta name="if:Show Header Navigation" content="1"/>    
 <meta name="if:Form fewer columns" content="0"/>   
@@ -64,8 +64,10 @@
 
 <meta name="text:Read more text" content='Read more'/>   
 
-<meta name="text:Primary Typekit Font name" content="Lato">    
-<meta name="text:Secondary Typekit Font name" content="DejaRip">    
+
+<meta name="text:Primary Google Font name" content="Lato" />    
+<meta name="text:Secondary Google Font name" content="Lato" />    
+<meta name="text:Paragraph Google Font name" content="Helvetica" />  
 
 <meta name="text:Google Analytics ID" content=''/>    
 <meta name="text:SoundCloud link for Player" content=""/>    
@@ -108,11 +110,11 @@
 <meta name="select:Masthead links style" content="links-bold" title="Bold">    
 <meta name="select:Masthead links style" content="links-italics" title="Italics">    
 <meta name="select:Masthead links style" content="links-normal" title="Normal">    
-<meta name="select:Masthead title style" content="links-uppercase" title="Uppercase">    
+<!-- <meta name="select:Masthead title style" content="links-uppercase" title="Uppercase">    
 <meta name="select:Masthead title style" content="links-bold-uppercase" title="Bold and uppercase">    
 <meta name="select:Masthead title style" content="links-bold" title="Bold">    
 <meta name="select:Masthead title style" content="links-italics" title="Italics">    
-<meta name="select:Masthead title style" content="links-normal" title="Normal">    
+<meta name="select:Masthead title style" content="links-normal" title="Normal">     -->
 <meta name="select:Post title style" content="entry-title-uppercase" title="Uppercase">    
 <meta name="select:Post title style" content="entry-title-bold-uppercase" title="Bold and uppercase">    
 <meta name="select:Post title style" content="entry-title-bold" title="Bold">    
@@ -139,10 +141,6 @@
     <link rel="apple-touch-icon" href="{PortraitURL-128}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
     <link href="http://static.tumblr.com/wgijwsy/YZomlhwl6/normalize.min.css" rel="stylesheet" type="text/css"/>
-
-
-    <script type="text/javascript" src="//use.typekit.net/wtb0ido.js"></script>
-    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
     <style type="text/css">
     /*
@@ -246,6 +244,10 @@ h6 {
   font-weight: 400;
   margin: .3em 0;
 }
+p {
+  font-size: 0.8em;
+  font-weight: 0;
+}
 h1 {
   font-size: 1.5em;
 }
@@ -263,7 +265,7 @@ iframe {
   position: relative;
 }
 html {
-  font-family: {text:Secondary Typekit Font name};
+  font-family: {text:Paragraph Google Font name};
   -webkit-text-size-adjust: none;
 }
 #masthead-wrapper {
@@ -276,7 +278,7 @@ html {
   position: relative;
 }
 #masthead {
-  font-family: {text:Secondary Typekit Font name};
+  font-family: {text:Secondary Google Font name};
   color: {color:Masthead text};
   width: 100%;
   padding: 1% 10%;
@@ -346,6 +348,7 @@ html {
 .read-more {
   opacity: 0.8;
   filter: alpha(opacity=80);
+  font-size: 0.8em;
 }
 body {
   height: 101%;
@@ -576,7 +579,13 @@ a,
   padding-bottom: 20px;
   text-overflow: ellipsis;
   overflow: hidden;
-  max-height: 400px;
+}
+.index .content-text .post.video {
+  padding: 0px !important;
+  margin-bottom: 0px !important;
+}
+.index .entry-content p span {
+  padding: 2% 5%;
 }
 .three-col.index article {
   width: 28%;
@@ -593,10 +602,10 @@ a,
   width: 80%;
   padding: 3% 5%;
   background: {color:Post background};
-  margin-bottom: 2%;
   border: 1px solid rgba(0, 0, 0, 0.09);
   border-radius: .2em;
-  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 2%;
 }
 .permalink .chat li {
   padding: 1% 0;
@@ -605,6 +614,9 @@ a,
   display: inline-block;
   width: 100%;
   margin-bottom: 2%;
+}
+.permalink .post-hover ul li {
+  text-align: center;
 }
 .permalink .source.icon {
   float: right;
@@ -630,9 +642,14 @@ a,
   line-height: 150%;
   margin: .5em 0;
   z-index: 401 !important;
+  text-transform: uppercase;
+  font-weight: 300;
 }
 .entry-title a {
   color: {color:Post title};
+}
+.entry-content p {
+  line-height: 1.45em;
 }
 .link .entry-title a {
   border-bottom: 2px solid {color:Text} !important;
@@ -796,6 +813,7 @@ article .inner p:last-child {
   margin-top: 1em;
   margin: 0;
   background: {color:Accent};
+  font-size: 0.8em;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 .index .post-hover:hover,
@@ -1145,7 +1163,7 @@ body :active {
 .entry-title-bold h5,
 .entry-title-bold h6,
 .entry-title-bold h7 {
-  font-weight: 700;
+  font-weight: 500;
 }
 .entry-title-italics .entry-title,
 .entry-title-italics h1,
@@ -1165,7 +1183,6 @@ body :active {
 .entry-title-uppercase h5,
 .entry-title-uppercase h6,
 .entry-title-uppercase h7 {
-  letter-spacing: .1em;
   text-transform: uppercase;
 }
 .entry-title-bold-uppercase .entry-title,
@@ -1176,8 +1193,7 @@ body :active {
 .entry-title-bold-uppercase h5,
 .entry-title-bold-uppercase h6,
 .entry-title-bold-uppercase h7 {
-  font-weight: 700;
-  letter-spacing: .1em;
+  font-weight: 500;
   text-transform: uppercase;
 }
 .avatar-circle img {
@@ -1206,19 +1222,31 @@ video {
 }
 .video-player {
   position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 3px;
-  height: 0;
+  height: 100%;
   overflow: hidden;
+}
+.video-player img {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin: 0;
+}
+.content-index .post .video-player {
+  max-width: 480px;
+  max-height: 280px;
 }
 .video-player iframe,
 .video-player object,
 .video-player embed {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
+  top: 0px;
+  left: 0px;
   width: 100%;
   height: 100%;
+  max-width: 700px;
+  max-height: 400px;
+  display: block !important;
 }
 img[align=left] {
   margin-right: 3%;
@@ -1354,6 +1382,7 @@ ul {
   -ms-transition: all 0.1s ease;
   -o-transition: all 0.1s ease;
   transition: all 0.1s ease;
+  text-transform: uppercase;
 }
 #overlay ul li a:hover {
   border: 4px solid #fff;
@@ -1451,7 +1480,7 @@ ul {
   box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.4);
 }
 #twitter-widget .twitter-follow-button span {
-  font-family: '{text:Secondary Google Font name}';
+  font-family: {text:Secondary Google Font name};
   font-weight: 250;
   font-size: .85em;
   padding: 0 6px;
@@ -1582,7 +1611,7 @@ ul {
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
   transition: all .2s ease;
-  font-family: {text:Secondary Typekit Font name};
+  font-family: {text:Secondary Google Font name};
   font-weight: 250;
   font-size: 0.9em;
   text-transform: uppercase;
@@ -1591,6 +1620,7 @@ ul {
 }
 #nav-header nav ul li a {
   color: {color:Menu links};
+  text-transform: uppercase;
 }
 #nav-header nav ul li:nth-child(5) a {
   display: none;
@@ -1635,13 +1665,14 @@ ul {
   position: relative;
 }
 #description p {
+  position: relative;
   text-align: center;
   text-transform: uppercase;
   max-width: 700px;
   min-width: 280px;
   font-size: 1.45em;
-  font-family: {text:Primary Typekit Font name};
-  font-weight: bold;
+  font-family: {text:Primary Google Font name};
+  font-weight: 700;
   line-height: 1.5em;
   margin: 0 auto;
   color: {color:Description Text};
@@ -1677,6 +1708,7 @@ ul {
 }
 .content-media.content-index {
   padding: 0px !important;
+  margin-bottom: 0px;
 }
 #avatar img {
   max-width: 64px;
@@ -1830,8 +1862,6 @@ ul {
     </style>
 
     <style> {CustomCSS} </style>
-
-
 
 </head>
 
@@ -2118,7 +2148,7 @@ ul {
     {block:Posts} 
 
 
-    <article id="{PostID}" class=" hentry {block:Text}type-text content-text{/block:Text} {block:Photo}type-photo content-media {block:IndexPage}content-index{/block:IndexPage}{/block:Photo} {block:Photoset}type-photoset content-text{/block:Photoset} {block:Quote}type-quote content-text{/block:Quote} {block:Link}type-link content-text{/block:Link} {block:Chat}type-chat content-text{/block:Chat} {block:Video}type-video content-text{/block:Video} {block:Audio}type-audio content-text{/block:Audio} {block:Answer}type-answer content-text{/block:Answer} post-btn" data-tags="{TagsAsClasses} null" data-url="{Permalink}">
+    <article id="{PostID}" class=" hentry {block:Text}type-text content-text{/block:Text} {block:Photo}type-photo content-media {block:IndexPage}content-index{/block:IndexPage} {/block:Photo} {block:Photoset}type-photoset content-text{/block:Photoset} {block:Quote}type-quote content-text{/block:Quote} {block:Link}type-link content-text{/block:Link} {block:Chat}type-chat content-text{/block:Chat} {block:Video}type-video content-media {block:IndexPage}content-index{/block:IndexPage} {/block:Video} {block:Audio}type-audio content-text{/block:Audio} {block:Answer}type-answer content-text{/block:Answer} post-btn" data-tags="{TagsAsClasses} null" data-url="{Permalink}">
         <!--Post hover on the index page-->
         {block:Date}{block:IndexPage}{block:IfPostButtons} 
       	<ul class="post-hover {block:ContentSource}has_source{/block:ContentSource}" role="contentinfo" data-url="{Permalink}">
@@ -2307,7 +2337,7 @@ ul {
                 <li class="{Alt}">
                     {block:Label}
                     <span class="label">
-                    {Label}
+                    {Label} 
                     </label>
                     </span>
                     {/block:Label} {Line} 
@@ -2330,20 +2360,34 @@ ul {
                 </div>
                 {block:PermalinkPage}{block:Caption} {Caption} {/block:Caption}{/block:PermalinkPage} {block:IfNotCaptionsOnlyOnPermalink}{block:IndexPage}{block:Caption} {Caption} {/block:Caption}{/block:IndexPage}{/block:IfNotCaptionsOnlyOnPermalink} 
             </div>
-            {/block:Audio} {block:Video} 
+            {/block:Audio} 
+
+            {block:Video} 
             <div class="video post">
-                <div class="video-player" id="{PostID}">
-                    {VideoEmbed-700} 
+                <div class="video-player" id="{PostID}">  
+                    
+                    {block:IndexPage}
+                    {VideoEmbed-400}
+                    {/block:IndexPage}
+
+                    {block:Permalink}
+                    {VideoEmbed-700}     
+                    {/block:Permalink}
+
+
                 </div>
-                {block:PermalinkPage}{block:Caption} 
+                {block:PermalinkPage}
+                {block:Caption} 
                 <div class="entry-content inner">
                     {Caption} 
                 </div>
-                {/block:Caption}{/block:PermalinkPage} {block:IfNotCaptionsOnlyOnPermalink}{block:IndexPage}{block:Caption} 
-                <div class="entry-content inner">
-                    {Caption} 
-                </div>
-                {/block:Caption}{/block:IndexPage}{/block:IfNotCaptionsOnlyOnPermalink} {/block:Video} {block:Answer} 
+                {/block:Caption}
+                {/block:PermalinkPage} 
+            {/block:Video}
+
+
+
+                 {block:Answer} 
                 <div class="answer post">
                     <p class="asker">
                         {lang:Asker asked 2}:
@@ -2567,10 +2611,17 @@ ul {
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
     <script src="//static.tumblr.com/k26otqz/XUNn7f0pl/theme.min.js"></script> 
 
+    
 
     <script>
         $(document).ready(function() {
-        
+            
+
+            {block:IndexPage}            
+
+
+            {/block:IndexPage}
+
         	/* 
         		Vars
         	*/

@@ -26,10 +26,6 @@
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
     <link href="http://static.tumblr.com/wgijwsy/YZomlhwl6/normalize.min.css" rel="stylesheet" type="text/css"/>
 
-
-    <script type="text/javascript" src="//use.typekit.net/wtb0ido.js"></script>
-    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
     <style type="text/css">
     <!-- build:include css/style.css -->
     <!-- Style content not loaded! -->
@@ -37,8 +33,6 @@
     </style>
 
     <style> {CustomCSS} </style>
-
-
 
 </head>
 
@@ -325,7 +319,7 @@
     {block:Posts} 
 
 
-    <article id="{PostID}" class=" hentry {block:Text}type-text content-text{/block:Text} {block:Photo}type-photo content-media {block:IndexPage}content-index{/block:IndexPage}{/block:Photo} {block:Photoset}type-photoset content-text{/block:Photoset} {block:Quote}type-quote content-text{/block:Quote} {block:Link}type-link content-text{/block:Link} {block:Chat}type-chat content-text{/block:Chat} {block:Video}type-video content-text{/block:Video} {block:Audio}type-audio content-text{/block:Audio} {block:Answer}type-answer content-text{/block:Answer} post-btn" data-tags="{TagsAsClasses} null" data-url="{Permalink}">
+    <article id="{PostID}" class=" hentry {block:Text}type-text content-text{/block:Text} {block:Photo}type-photo content-media {block:IndexPage}content-index{/block:IndexPage} {/block:Photo} {block:Photoset}type-photoset content-text{/block:Photoset} {block:Quote}type-quote content-text{/block:Quote} {block:Link}type-link content-text{/block:Link} {block:Chat}type-chat content-text{/block:Chat} {block:Video}type-video content-media {block:IndexPage}content-index{/block:IndexPage} {/block:Video} {block:Audio}type-audio content-text{/block:Audio} {block:Answer}type-answer content-text{/block:Answer} post-btn" data-tags="{TagsAsClasses} null" data-url="{Permalink}">
         <!--Post hover on the index page-->
         {block:Date}{block:IndexPage}{block:IfPostButtons} 
       	<ul class="post-hover {block:ContentSource}has_source{/block:ContentSource}" role="contentinfo" data-url="{Permalink}">
@@ -514,7 +508,7 @@
                 <li class="{Alt}">
                     {block:Label}
                     <span class="label">
-                    {Label}
+                    {Label} 
                     </label>
                     </span>
                     {/block:Label} {Line} 
@@ -537,20 +531,34 @@
                 </div>
                 {block:PermalinkPage}{block:Caption} {Caption} {/block:Caption}{/block:PermalinkPage} {block:IfNotCaptionsOnlyOnPermalink}{block:IndexPage}{block:Caption} {Caption} {/block:Caption}{/block:IndexPage}{/block:IfNotCaptionsOnlyOnPermalink} 
             </div>
-            {/block:Audio} {block:Video} 
+            {/block:Audio} 
+
+            {block:Video} 
             <div class="video post">
-                <div class="video-player" id="{PostID}">
-                    {VideoEmbed-700} 
+                <div class="video-player" id="{PostID}">  
+                    
+                    {block:IndexPage}
+                    {VideoEmbed-400}
+                    {/block:IndexPage}
+
+                    {block:Permalink}
+                    {VideoEmbed-700}     
+                    {/block:Permalink}
+
+
                 </div>
-                {block:PermalinkPage}{block:Caption} 
+                {block:PermalinkPage}
+                {block:Caption} 
                 <div class="entry-content inner">
                     {Caption} 
                 </div>
-                {/block:Caption}{/block:PermalinkPage} {block:IfNotCaptionsOnlyOnPermalink}{block:IndexPage}{block:Caption} 
-                <div class="entry-content inner">
-                    {Caption} 
-                </div>
-                {/block:Caption}{/block:IndexPage}{/block:IfNotCaptionsOnlyOnPermalink} {/block:Video} {block:Answer} 
+                {/block:Caption}
+                {/block:PermalinkPage} 
+            {/block:Video}
+
+
+
+                 {block:Answer} 
                 <div class="answer post">
                     <p class="asker">
                         {lang:Asker asked 2}:
@@ -774,10 +782,17 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
     <script src="//static.tumblr.com/k26otqz/XUNn7f0pl/theme.min.js"></script> 
 
+    
 
     <script>
         $(document).ready(function() {
-        
+            
+
+            {block:IndexPage}            
+
+
+            {/block:IndexPage}
+
         	/* 
         		Vars
         	*/
