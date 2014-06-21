@@ -36,7 +36,7 @@
 
 </head>
 
-<body class="{block:PermalinkPage}permalink{/block:PermalinkPage} {block:IndexPage}index{/block:IndexPage} fixed-masthead {block:IfFormFewerColumns}three-col{/block:IfFormFewerColumns} {block:IfNotFormFewerColumns}four-col{/block:IfNotFormFewerColumns} {select:Body background} {select:Masthead background} masthead-effect-{select:Masthead effect} post-effect-{select:Post hover effect} menu-{select:Menu} {block:IfPostTitleCentered}entry-title-centered{/block:IfPostTitleCentered} link-normal link-special animate {select:Photo filter} masthead-effect-{select:Masthead effect} {block:PermalinkPage}permalink{/block:PermalinkPage} {block:IndexPage}index{/block:IndexPage} fixed-masthead {block:IfFormFewerColumns}three-col{/block:IfFormFewerColumns} {block:IfNotFormFewerColumns}four-col{/block:IfNotFormFewerColumns} {select:Body background} {select:Masthead background} masthead-effect-{select:Masthead effect} post-effect-{select:Post hover effect} menu-{select:Menu} {block:IfPostTitleCentered}entry-title-centered{/block:IfPostTitleCentered} link-normal link-special animate {select:Photo filter} {/block:IfNotLinkToOlleOtaThemes}">
+<body class="{block:PermalinkPage}permalink{/block:PermalinkPage} {block:IndexPage}index{/block:IndexPage} fixed-masthead {block:IfFormFewerColumns}three-col{/block:IfFormFewerColumns} {block:IfNotFormFewerColumns}four-col{/block:IfNotFormFewerColumns} {select:Body background} {select:Masthead background} masthead-effect-{select:Masthead effect} post-effect-{select:Post hover effect} menu-{select:Menu} {block:IfPostTitleCentered}entry-title-centered{/block:IfPostTitleCentered} link-normal link-special animate {select:Photo filter} masthead-effect-{select:Masthead effect} {block:PermalinkPage}permalink{/block:PermalinkPage} {block:IndexPage}index{/block:IndexPage} fixed-masthead {block:IfFormFewerColumns}three-col{/block:IfFormFewerColumns} {block:IfNotFormFewerColumns}four-col{/block:IfNotFormFewerColumns} {select:Body background} {select:Masthead background} masthead-effect-{select:Masthead effect} post-effect-{select:Post hover effect} menu-{select:Menu} {block:IfPostTitleCentered}entry-title-centered{/block:IfPostTitleCentered} link-normal link-special animate {select:Photo filter} {/block:IfNotLinkToOlleOtaThemes} loading">
 
 	<!-- Twitter Widget -->
     {block:IfTwitterWidget} 
@@ -941,9 +941,9 @@
 
         $.when( initEvents() ).done(function() {
 
-            $body.removeClass('disable-scroll');
+            $body.removeClass('loading');
             $loader.fadeOut();
-            $overlay.removeClass('loading');                
+            $overlay.fadeOut('slow');           
         });
 
     });

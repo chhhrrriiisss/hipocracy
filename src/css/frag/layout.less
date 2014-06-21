@@ -12,7 +12,7 @@ html {
 #masthead-wrapper {
     background-color: @masthead-background-color;
     background-image:url(@masthead-background-image);
-    background-repeat:repeat-y;
+    background-repeat:repeat;
     display:block;
     width:100%;
     height:auto;
@@ -90,6 +90,14 @@ body {
     font-size: @font-size;
     color: @post-text-color;
     overflow-x: hidden;
+
+    &.loading {
+        #nav-toggle, #twitter-widget {
+            display:none !important;            
+        }
+
+
+    }
 }
 * {
     word-wrap: break-word;
@@ -370,7 +378,87 @@ a,#credit {
 
     .post {
         .entry-content {
+
             text-align:left;
+
+            /* 
+                Grid System
+            */
+
+            div[class^="col-"] {
+
+                float:left;
+                width:100%;
+                height:auto;
+                clear:both;
+                padding:2% 0%;
+
+                p {
+                    float:left;
+                    display:inline-block;
+                }
+
+            }
+
+            div.col-3-9 {
+       
+                p {
+                    &:first-child {    
+                        width:29%;
+                        margin-right:4%; 
+                    }
+
+                    &:last-child {
+                        width:66%;
+                    }
+                }              
+            }
+
+            div.col-9-3 {
+                    
+                p {
+
+                    &:first-child {           
+                        width:66%;
+                        margin-right:4%; 
+                    }              
+
+                    &:last-child {          
+                        width:29%;
+                    }   
+                }
+            }
+
+            div.col-6-6 {
+                p {
+                    &:first-child {
+                        width:48%;
+                        margin-right:4%; 
+                    }
+
+                    &:last-child {
+                        width:48%;
+                    }
+                }
+            }
+
+              
+      
+            @media screen and (max-width:500px) {
+
+                div {
+                    p {
+                        float:left !important;
+                        display:block;
+                        width:100% !important;
+                        margin: 0 !important;
+                    }
+                }
+
+            }
+
+
+
         }
 
          .video-player iframe,.video-player object,.video-player embed {
@@ -1079,6 +1167,8 @@ ul {
     .animation(spin .8s infinite linear);
     margin-bottom: 8px;
 
+
+
 }
 
 .jPanelMenu-panel {
@@ -1135,7 +1225,7 @@ ul {
     padding: 1.5em!important;
     background: @menu-background-color;
 
-    .transition(all .3s);
+    .transition(all .5s);
     .opacity(0);
 
     &.loading {

@@ -126,7 +126,7 @@ html {
 #masthead-wrapper {
   background-color: {color:Masthead background};
   background-image: url({image:Masthead background});
-  background-repeat: repeat-y;
+  background-repeat: repeat;
   display: block;
   width: 100%;
   height: auto;
@@ -215,6 +215,10 @@ body {
   font-size: {select: Font size};
   color: {color: Post text};
   overflow-x: hidden;
+}
+body.loading #nav-toggle,
+body.loading #twitter-widget {
+  display: none !important;
 }
 * {
   word-wrap: break-word;
@@ -485,6 +489,49 @@ a,
 }
 .permalink .post .entry-content {
   text-align: left;
+  /* 
+                Grid System
+            */
+}
+.permalink .post .entry-content div[class^="col-"] {
+  float: left;
+  width: 100%;
+  height: auto;
+  clear: both;
+  padding: 2% 0%;
+}
+.permalink .post .entry-content div[class^="col-"] p {
+  float: left;
+  display: inline-block;
+}
+.permalink .post .entry-content div.col-3-9 p:first-child {
+  width: 29%;
+  margin-right: 4%;
+}
+.permalink .post .entry-content div.col-3-9 p:last-child {
+  width: 66%;
+}
+.permalink .post .entry-content div.col-9-3 p:first-child {
+  width: 66%;
+  margin-right: 4%;
+}
+.permalink .post .entry-content div.col-9-3 p:last-child {
+  width: 29%;
+}
+.permalink .post .entry-content div.col-6-6 p:first-child {
+  width: 48%;
+  margin-right: 4%;
+}
+.permalink .post .entry-content div.col-6-6 p:last-child {
+  width: 48%;
+}
+@media screen and (max-width: 500px) {
+  .permalink .post .entry-content div p {
+    float: left !important;
+    display: block;
+    width: 100% !important;
+    margin: 0 !important;
+  }
 }
 .permalink .post .video-player iframe,
 .permalink .post .video-player object,
@@ -1215,11 +1262,11 @@ ul {
   line-height: 2em;
   padding: 1.5em!important;
   background: {color:Menu background};
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
   opacity: 0;
   filter: alpha(opacity=0);
 }
