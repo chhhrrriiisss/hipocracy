@@ -113,6 +113,114 @@
     </div>
     {/block:IfShowHeaderNavigation} 
 
+
+    <!-- Overlay Menu -->
+    <div id="overlay" role="navigation" class="loading">
+
+        <div id="loading">
+        </div>        
+
+        <nav>
+            <ul class="{select:Masthead links style} menu">
+                {block:IfShowBackLink} 
+                <li id="backlink">
+                    <a href="{text:Back Link URL}" target="_blank">
+                    DESIGN &amp; DEMOCRACY
+                    </a>
+                </li>
+                {/block:IfShowBackLink} 
+                {block:IfNotMastheadSiteName}{block:IfNotMastheadAvatar}{block:IfNotMastheadLogoImage} 
+                <li>
+                    <a href="/" title="{lang:Home}" id="site-name" {Target}>
+                    {Title}
+                    </a>
+                </li>
+                {/block:IfNotMastheadLogoImage}{/block:IfNotMastheadAvatar}{/block:IfNotMastheadSiteName} {block:HasPages}{block:Pages} 
+                <li>
+                    <a href="{URL}" {Target}>
+                    {Label}
+                    </a>
+                </li>
+                {/block:Pages}{/block:HasPages} {block:SubmissionsEnabled} 
+                <li>
+                    <a href="/submit" {Target}>
+                    {SubmitLabel}
+                    </a>
+                </li>
+                {/block:SubmissionsEnabled} {block:AskEnabled} 
+                <li>
+                    <a href="/ask" {Target}>
+                    {AskLabel}
+                    </a>
+                </li>
+                {/block:AskEnabled} {block:IfLinkToOlleOtaThemes} 
+                <li>
+                    <a href="http://olleotathemes.tumblr.com/" {Target} rel="nofollow" title="{Title} uses Margin by Olle Ota">
+                    Theme
+                    </a>
+                </li>
+                {/block:IfLinkToOlleOtaThemes} {block:IfMastheadRSSLink} 
+                <li>
+                    <a href="{RSS}" id="rss" title="{lang:Subscribe via RSS}" {Target}>
+                    {lang:RSS}
+                    </a>
+                </li>
+                {/block:IfMastheadRSSLink} {block:IfMastheadArchiveLink} 
+                <li>
+                    <a href="/archive" id="archive" title="{lang:Browse the archive}" {Target}>
+                    {lang:Archive}
+                    </a>
+                </li>
+                {/block:IfMastheadArchiveLink} {block:IfMastheadRandomPostLink} 
+                <li>
+                    <a href="/random" id="random" rel="nofollow" {Target}>
+                    {lang:Random post}
+                    </a>
+                </li>
+                {/block:IfMastheadRandomPostLink} 
+                {block:IfDirectLinkUrlOne} 
+                <li>
+                    <a href="{text:Direct link URL One}" class="direct-link" {Target}>
+                    {block:IfDirectLinkTitleOne}{text:Direct link title One}{/block:IfDirectLinkTitleOne} {block:IfNotDirectLinkTitleOne}{lang:Link}{/block:IfNotDirectLinkTitleOne} 
+                    </a>
+                </li>
+                {/block:IfDirectLinkUrlOne} {block:IfDirectLinkUrlTwo} 
+                <li>
+                    <a href="{text:Direct link URL Two}" class="direct-link" {Target}>
+                    {block:IfDirectLinkTitleTwo}{text:Direct link title Two}{/block:IfDirectLinkTitleTwo} {block:IfNotDirectLinkTitleTwo}{lang:Link}{/block:IfNotDirectLinkTitleTwo} 
+                    </a>
+                </li>
+                {/block:IfDirectLinkUrlTwo} {block:IfDirectLinkUrlThree} 
+                <li>
+                    <a href="{text:Direct link URL Three}" class="direct-link" {Target}>
+                    {block:IfDirectLinkTitleThree}{text:Direct link title Three}{/block:IfDirectLinkTitleThree} {block:IfNotDirectLinkTitleThree}{lang:Link}{/block:IfNotDirectLinkTitleThree} 
+                    </a>
+                </li>
+                {/block:IfDirectLinkUrlThree} {block:IfDirectLinkUrlFour} 
+                <li>
+                    <a href="{text:Direct link URL Four}" class="direct-link" {Target}>
+                    {block:IfDirectLinkTitleFour}{text:Direct link title Four}{/block:IfDirectLinkTitleFour} {block:IfNotDirectLinkTitleFour}{lang:Link}{/block:IfNotDirectLinkTitleFour} 
+                    </a>
+                </li>
+                {/block:IfDirectLinkUrlFour} {block:IfDirectLinkUrlFive} 
+                <li>
+                    <a href="{text:Direct link URL Five}" class="direct-link" {Target}>
+                    {block:IfDirectLinkTitleFive}{text:Direct link title Five}{/block:IfDirectLinkTitleFive} {block:IfNotDirectLinkTitleFive}{lang:Link}{/block:IfNotDirectLinkTitleFive} 
+                    </a>
+                </li>
+                {/block:IfDirectLinkUrlFive} {block:IfDirectLinkUrlSix} 
+                <li>
+                    <a href="{text:Direct link URL Six}" class="direct-link" {Target}>
+                    {block:IfDirectLinkTitleSix}{text:Direct link title Six}{/block:IfDirectLinkTitleSix} {block:IfNotDirectLinkTitleSix}{lang:Link}{/block:IfNotDirectLinkTitleSix} 
+                    </a>
+                </li>
+                {/block:IfDirectLinkUrlSix} 
+            </ul>
+        </nav>
+    </div>
+
+
+
     <!-- Nav Toggle Button -->
     <div id="nav-toggle-wrapper" class="nav-toggle-wrapper">
         <a id="nav-toggle" href="#">
@@ -129,7 +237,7 @@
     <span id="fade-body-hook">
     </span>
 
-    <!-- Mastheat -->
+    <!-- Masthead -->
 
     <div id="masthead-wrapper" class-"header-wrap">
 
@@ -155,106 +263,6 @@
                 {/block:IfMastheadSiteName} {/block:IfMastheadTitle}
             </div>
 
-            <!-- Nav Header -->
-            <div id="{select:Menu}" class="widget" role="navigation">
-                <nav>
-                    <ul class="{select:Masthead links style}">
-                        {block:IfShowBackLink} 
-                        <li id="backlink">
-                            <a href="{text:Back Link URL}" target="_blank">
-                            DESIGN &amp; DEMOCRACY
-                            </a>
-                        </li>
-                        {/block:IfShowBackLink} 
-                        {block:IfNotMastheadSiteName}{block:IfNotMastheadAvatar}{block:IfNotMastheadLogoImage} 
-                        <li>
-                            <a href="/" title="{lang:Home}" id="site-name" {Target}>
-                            {Title}
-                            </a>
-                        </li>
-                        {/block:IfNotMastheadLogoImage}{/block:IfNotMastheadAvatar}{/block:IfNotMastheadSiteName} {block:HasPages}{block:Pages} 
-                        <li>
-                            <a href="{URL}" {Target}>
-                            {Label}
-                            </a>
-                        </li>
-                        {/block:Pages}{/block:HasPages} {block:SubmissionsEnabled} 
-                        <li>
-                            <a href="/submit" {Target}>
-                            {SubmitLabel}
-                            </a>
-                        </li>
-                        {/block:SubmissionsEnabled} {block:AskEnabled} 
-                        <li>
-                            <a href="/ask" {Target}>
-                            {AskLabel}
-                            </a>
-                        </li>
-                        {/block:AskEnabled} {block:IfLinkToOlleOtaThemes} 
-                        <li>
-                            <a href="http://olleotathemes.tumblr.com/" {Target} rel="nofollow" title="{Title} uses Margin by Olle Ota">
-                            Theme
-                            </a>
-                        </li>
-                        {/block:IfLinkToOlleOtaThemes} {block:IfMastheadRSSLink} 
-                        <li>
-                            <a href="{RSS}" id="rss" title="{lang:Subscribe via RSS}" {Target}>
-                            {lang:RSS}
-                            </a>
-                        </li>
-                        {/block:IfMastheadRSSLink} {block:IfMastheadArchiveLink} 
-                        <li>
-                            <a href="/archive" id="archive" title="{lang:Browse the archive}" {Target}>
-                            {lang:Archive}
-                            </a>
-                        </li>
-                        {/block:IfMastheadArchiveLink} {block:IfMastheadRandomPostLink} 
-                        <li>
-                            <a href="/random" id="random" rel="nofollow" {Target}>
-                            {lang:Random post}
-                            </a>
-                        </li>
-                        {/block:IfMastheadRandomPostLink} 
-                        {block:IfDirectLinkUrlOne} 
-                        <li>
-                            <a href="{text:Direct link URL One}" class="direct-link" {Target}>
-                            {block:IfDirectLinkTitleOne}{text:Direct link title One}{/block:IfDirectLinkTitleOne} {block:IfNotDirectLinkTitleOne}{lang:Link}{/block:IfNotDirectLinkTitleOne} 
-                            </a>
-                        </li>
-                        {/block:IfDirectLinkUrlOne} {block:IfDirectLinkUrlTwo} 
-                        <li>
-                            <a href="{text:Direct link URL Two}" class="direct-link" {Target}>
-                            {block:IfDirectLinkTitleTwo}{text:Direct link title Two}{/block:IfDirectLinkTitleTwo} {block:IfNotDirectLinkTitleTwo}{lang:Link}{/block:IfNotDirectLinkTitleTwo} 
-                            </a>
-                        </li>
-                        {/block:IfDirectLinkUrlTwo} {block:IfDirectLinkUrlThree} 
-                        <li>
-                            <a href="{text:Direct link URL Three}" class="direct-link" {Target}>
-                            {block:IfDirectLinkTitleThree}{text:Direct link title Three}{/block:IfDirectLinkTitleThree} {block:IfNotDirectLinkTitleThree}{lang:Link}{/block:IfNotDirectLinkTitleThree} 
-                            </a>
-                        </li>
-                        {/block:IfDirectLinkUrlThree} {block:IfDirectLinkUrlFour} 
-                        <li>
-                            <a href="{text:Direct link URL Four}" class="direct-link" {Target}>
-                            {block:IfDirectLinkTitleFour}{text:Direct link title Four}{/block:IfDirectLinkTitleFour} {block:IfNotDirectLinkTitleFour}{lang:Link}{/block:IfNotDirectLinkTitleFour} 
-                            </a>
-                        </li>
-                        {/block:IfDirectLinkUrlFour} {block:IfDirectLinkUrlFive} 
-                        <li>
-                            <a href="{text:Direct link URL Five}" class="direct-link" {Target}>
-                            {block:IfDirectLinkTitleFive}{text:Direct link title Five}{/block:IfDirectLinkTitleFive} {block:IfNotDirectLinkTitleFive}{lang:Link}{/block:IfNotDirectLinkTitleFive} 
-                            </a>
-                        </li>
-                        {/block:IfDirectLinkUrlFive} {block:IfDirectLinkUrlSix} 
-                        <li>
-                            <a href="{text:Direct link URL Six}" class="direct-link" {Target}>
-                            {block:IfDirectLinkTitleSix}{text:Direct link title Six}{/block:IfDirectLinkTitleSix} {block:IfNotDirectLinkTitleSix}{lang:Link}{/block:IfNotDirectLinkTitleSix} 
-                            </a>
-                        </li>
-                        {/block:IfDirectLinkUrlSix} 
-                    </ul>
-                </nav>
-            </div>
             {block:IfMastheadSearch} 
             <div id="search" class="widget" role="search">
                 <form action="/search" method="get">
@@ -730,10 +738,9 @@
     </article>
     {/block:Posts} 
     </div>
-    {block:IndexPage} 
-    <div id="loading">
-    </div>
-    {/block:IndexPage} {block:Pagination} 
+
+
+    {block:Pagination} 
     <nav id="pagination" role="navigation">
     <ul>
     {block:PreviousPage}
@@ -780,70 +787,166 @@
     </script> 
  
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
-    <script src="//static.tumblr.com/k26otqz/XUNn7f0pl/theme.min.js"></script> 
-
-    
+    <script src="//static.tumblr.com/k26otqz/HhXn7ic4k/theme.min.js"></script> 
 
     <script>
-        $(document).ready(function() {
-            
 
-            {block:IndexPage}            
+    /* 
+        Menu Plugin
+    */
+
+    (function ($) {
+
+        $.fn.menu = function( options ) {
+
+            $m = this;
+            isOpen = false;
+            isAnimating = false;
+            nav = $('#nav-toggle');
+            overlay = $('#overlay');
+            $b = $('body');
+            $w = $(window);
+
+            onResize = function() {
+
+                $m.close();
+
+            };
+
+            openMenu = function() {
+
+                nav.addClass('active');
+                overlay.addClass('active');
+                $b.addClass('disable-scroll'); // makes overlay take precedent over posts for sidebar themes
+                isOpen = true;    
+                   
+
+            }
+
+            closeMenu = function() {
+
+                nav.removeClass('active');
+                overlay.removeClass('active');
+                $b.removeClass('disable-scroll'); // makes overlay take precedent over posts for sidebar themes
+                isOpen = false;      
+
+            }
+
+            $m.open = function() {
+                if (!isOpen && !isAnimating) {
+
+                    overlay.show();
+                    isAnimating = true;                            
+
+                    $.when( openMenu() ).done(function() {
+                        isAnimating = false;
+                    });
+
+                }
+              
+            }
+
+            $m.close = function() {
+                if (isOpen && !isAnimating) {
+
+                    $.when( closeMenu() ).done(function() {
+                        isAnimating = false;
+                        overlay.hide();
+                    });
+
+                }
+      
+            }
+
+            $m.toggle = function() {
+
+                if (!isOpen) {
+                    $m.open();
+                } else {
+                    $m.close();
+                }                         
+
+            }
+
+            // On Window Resize Handler
+            $w.on("resize", onResize).resize();
+            $('#nav-toggle-wrapper').fastClick($m.toggle); 
+
+            return $m;
+
+        }
+
+    }( jQuery ));
+
+    /* 
+        Dom Ready 
+    */
+
+    $(document).ready(function() {
+
+        $navWrapper = $('#nav-toggle-wrapper');
+        $loader = $('#loading');
+        $overlay = $('#overlay');
+        $body = $('body');
+        $menu = {};                      
+
+        initEvents = function() {
+
+            $menu = $.fn.menu();  
+
+            prepareGrid();
+
+            /* 
+                Trigger for nav-toggle button invert
+            */
+
+            $('#wrapper').waypoint(function(direction) {
+                (direction == 'down') ? $navWrapper.addClass('invert') : $navWrapper.removeClass('invert');
+            }, { offset: 50 });
 
 
-            {/block:IndexPage}
+            /* 
+                Active class for nav links
+            */
 
-        	/* 
-        		Vars
-        	*/
-        
-        	$nav = $('#nav-toggle');
-        	$navWrapper = $('#nav-toggle-wrapper');
-        
-        	$('#loading').hide();
-        
-        	/* 
-        		Trigger for nav-toggle button invert
-        	*/
-        
-        	$('#wrapper').waypoint(function(direction) {
-        		(direction == 'down') ? $navWrapper.addClass('invert') : $navWrapper.removeClass('invert');
-        	}, { offset: 50 });
-        
-        
-        	/* 
-        		Active class for nav links
-        	*/
-        
-        	$("a").each(function(){
-        
-        	   href = $(this).attr("href");
-        	   if (href == window.location.pathname) {
-        	        $(this).addClass("active");
-        	        $(this).parent().addClass("active");
-        	   }
-        	});
+            $("a").each(function(){
 
-        	/* 
-        		Clicking on hover box opens post
-        	*/
+               href = $(this).attr("href");
+               if (href == window.location.pathname) {
+                    $(this).addClass("active");
+                    $(this).parent().addClass("active");
+               }
+            });
 
-        	$('ul.post-hover').fastClick(function() {
+            /* 
+                Clicking on hover box opens post
+            */
 
-        			href = $(this).attr('data-url');
-        			window.open (href,'_self',false);       
+            $('ul.post-hover').fastClick(function() {
 
-        	});
+                    href = $(this).attr('data-url');
+                    window.open (href,'_self',false);       
 
-        	$('article').fastClick(function() {
+            });
 
-        			href = $(this).attr('data-url');
-        			window.open (href,'_self',false);      
+            $('article').fastClick(function() {
 
-        	});
-        
-        
+                    href = $(this).attr('data-url');
+                    window.open (href,'_self',false);      
+
+            });
+
+
+        };
+
+        $.when( initEvents() ).done(function() {
+
+            $body.removeClass('disable-scroll');
+            $loader.fadeOut();
+            $overlay.removeClass('loading');                
         });
+
+    });
     </script> 
 
     <!-- {block:IfGoogleAnalyticsID} <script>

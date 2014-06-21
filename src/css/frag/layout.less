@@ -328,7 +328,8 @@ a,#credit {
 }
 .permalink {
     article {
-        width: 80%;
+        width: 100%;
+        max-width:820px;
         padding: 3% 5%;
         background: @post-background-color;        
         border: 1px solid rgba(0,0,0,.09);
@@ -1063,18 +1064,21 @@ ul {
 #loading {
     display: inline-block;
     position: fixed;
-    bottom: 0;
-    right: 40%;
-    border-bottom: 6px solid rgba(160,160,160,1);
-    border-left: 6px solid rgba(226,226,226,1);
-    border-right: 6px solid rgba(219,219,219,1);
-    border-top: 6px solid rgba(221,221,221,1);
+    top:50%;
+    left:50%;
+
+    border-bottom: 6px solid rgba(255,255,255,1);
+    border-left: 6px solid rgba(255,255,255,.25);
+    border-right: 6px solid rgba(255,255,255,.25);
+    border-top: 6px solid rgba(255,255,255,.25);
     border-radius: 50%;
     height: 30px;
     width: 30px;
+    margin-top:-15px;
+    margin-left:-15px;
     .animation(spin .8s infinite linear);
     margin-bottom: 8px;
-    right: 45%;
+
 }
 
 .jPanelMenu-panel {
@@ -1100,7 +1104,7 @@ ul {
 }
 
 .disable-scroll {
-    overflow-y: hidden!important;
+    overflow-y: hidden !important;
     overflow: hidden!important;
 }
 
@@ -1118,7 +1122,6 @@ ul {
 }
 
 #overlay {
-    overflow-y:scroll;
     display: inline-block;
     width: 100%;
     height: 100%;
@@ -1131,9 +1134,24 @@ ul {
     line-height: 2em;
     padding: 1.5em!important;
     background: @menu-background-color;
-    .opacity(90);
 
-    ul.menu {
+    .transition(all .3s);
+    .opacity(0);
+
+    &.loading {
+        .opacity(90);
+    }
+
+    &.active {
+
+        .opacity(90) !important;
+
+        ul {
+            .opacity(100) !important;
+        }
+    }
+
+    ul {
         position:absolute;
         top:50%;
         left:50%;
@@ -1141,7 +1159,8 @@ ul {
         width:100%;
         min-width:320px;
         .opacity(0);
-        
+        .transition(all .3s);
+
         li {
             display:block;
             text-align:center;
@@ -1156,6 +1175,7 @@ ul {
                 border:4px solid rgba(255,255,255,0);
                 .transition(all .1s ease);
                 text-transform:uppercase;
+                font-family:@primary-font;
             }
             a:hover {
                 border:4px solid #fff;
@@ -1169,6 +1189,7 @@ ul {
         }
     }
 }
+
 #twitter-widget {
 
     position:absolute;
@@ -1321,7 +1342,7 @@ ul {
         .transform(rotate(45deg) translateY(18px));
     }
     .b3 {
-        .transform( rotate(-45deg) translateY(-18px) );
+        .transform( rotate(-45deg) translateY(-18px));
     }
 }
 #nav-header {
@@ -1358,6 +1379,8 @@ ul {
                 a {
                     color: @menu-links-color;
                     text-transform:uppercase;
+                    width:100%;
+                    height:100%;
                 }
             }
             li:nth-child(5) {
