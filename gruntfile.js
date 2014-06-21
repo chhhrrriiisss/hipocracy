@@ -58,13 +58,59 @@ module.exports = function(grunt) {
         },
 
         watch: {
-            scripts: {
-                files: ['src/**/*.less','src/*.html','src/js/*.js', 'src/img/*.*'],
-                tasks: ['default'],
+
+            sprites: {
+                files: ['src/img/*.*'],
+                tasks: ['spritesChanged'],
                 options: {
-                    debounceDelay: 2000
-                },
+                    debounceDelay: 500,
+                    atBegin: function() {
+
+                        grunt.log.writeln('Sprites updating...');
+
+                    },
+                }
             },
+
+            scripts: {
+                files: ['src/js/*.js'],
+                tasks: ['scriptsChanged'],
+                options: {
+                    debounceDelay: 500,
+                    atBegin: function() {
+
+                        grunt.log.writeln('Scripts updating...');
+
+                    },
+                }
+            },
+
+            html: {
+                files: ['src/*.html'],
+                tasks: ['htmlChanged'],
+                options: {
+                    debounceDelay: 500,
+                    atBegin: function() {
+
+                        grunt.log.writeln('HTML updating...');
+
+                    },
+                }
+            },
+
+            css: {
+                files: ['src/**/*.less'],
+                tasks: ['stylesheetChanged'],
+                options: {
+                    debounceDelay: 500,
+                    atBegin: function() {
+
+                        grunt.log.writeln('CSS updating...');
+
+                    },
+                }
+            }
+
         },
 
         less: {
@@ -108,6 +154,12 @@ module.exports = function(grunt) {
 
     grunt.registerTask('parse', ['lesslint']);
     grunt.registerTask('default', ['clean:build', 'sprite', 'concat', 'less', 'cssmin', 'uglify', 'processhtml', 'exec']);
+
+    grunt.registerTask('default', ['clean:build', 'sprite', 'concat', 'less', 'cssmin', 'uglify', 'processhtml', 'exec']);
+    grunt.registerTask('stylesheetChanged', ['less', 'cssmin', 'processhtml', 'exec']);
+    grunt.registerTask('scriptsChanged', ['uglify', 'processhtml', 'exec']);
+    grunt.registerTask('spritesChanged', ['sprite', 'concat', 'less', 'cssmin', 'processhtml','exec']);
+    grunt.registerTask('htmlChanged', ['processhtml','exec']);
    
 };
 

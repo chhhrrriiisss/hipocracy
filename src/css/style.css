@@ -373,6 +373,7 @@ a,
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
+  color: #a7a7a7;
 }
 .index .post-hover a:active {
   margin-top: -14px !important;
@@ -439,9 +440,6 @@ a,
   padding: 0px !important;
   margin-bottom: 0px !important;
 }
-.index .entry-content p span {
-  padding: 2% 5%;
-}
 .three-col.index article {
   width: 28%;
   width: 29.3%;
@@ -483,6 +481,17 @@ a,
 .permalink #content {
   margin: 5% 11%;
   margin: 5% 13%;
+}
+.permalink .post .entry-content {
+  text-align: left;
+}
+.permalink .post .video-player iframe,
+.permalink .post .video-player object,
+.permalink .post .video-player embed {
+  /* width:100%; */
+  width: 100%;
+  max-width: 700px;
+  max-height: 400px;
 }
 .intro {
   font-size: 2em;
@@ -670,6 +679,7 @@ article .inner p:last-child {
   background: {color:Accent};
   font-size: 0.8em;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
+  color: #a7a7a7;
 }
 .index .post-hover:hover,
 .index .post-hover a:hover {
@@ -1207,7 +1217,7 @@ ul {
   opacity: 0.9;
   filter: alpha(opacity=90);
 }
-#overlay ul {
+#overlay ul.menu {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1218,14 +1228,16 @@ ul {
   transform: translate(-50%, -50%);
   width: 100%;
   min-width: 320px;
+  opacity: 0;
+  filter: alpha(opacity=0);
 }
-#overlay ul li {
+#overlay ul.menu li {
   display: block;
   text-align: center;
   width: 100%;
   margin: 2px 0px;
 }
-#overlay ul li a {
+#overlay ul.menu li a {
   width: 100%;
   min-width: 300px;
   max-width: 500px;
@@ -1239,14 +1251,14 @@ ul {
   transition: all 0.1s ease;
   text-transform: uppercase;
 }
-#overlay ul li a:hover {
+#overlay ul.menu li a:hover {
   border: 4px solid #fff;
 }
-#overlay ul li a.active {
+#overlay ul.menu li a.active {
   opacity: 0.8;
   filter: alpha(opacity=80);
 }
-#overlay ul li a.active:hover {
+#overlay ul.menu li a.active:hover {
   border: 4px solid rgba(255, 255, 255, 0) !important;
 }
 #twitter-widget {
