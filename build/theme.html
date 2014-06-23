@@ -4,7 +4,7 @@
 
 
 
-    <!-- BLOG DETAILS: {Title} {BlogURL} THEME DETAILS: MarginPlus by Chris Nicholls -->
+    <!-- BLOG DETAILS: {Title} {BlogURL} THEME DETAILS: Hipocracy by Chris Nicholls -->
 <meta name="color:Body background" content="#ffffff"/>  
 <meta name="color:Body highlight" content="#36bec7"/>  
 <meta name="color:Post title" content="#000"/>    
@@ -257,6 +257,19 @@ h3 {
 h4 {
   font-size: 1em;
 }
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+::-moz-selection {
+  background: #000;
+  text-shadow: none;
+}
+::selection {
+  background: #000;
+  text-shadow: none;
+}
 iframe {
   display: none !important;
   position: relative;
@@ -433,10 +446,8 @@ a,
   width: 100%;
 }
 .index article {
-  margin: 2.666666666666%;
-  margin: 2%;
   margin: 0;
-  padding: 2% 0%;
+  padding: 0;
 }
 .index article footer.inner {
   padding: 0;
@@ -445,8 +456,14 @@ a,
   display: block;
   font-size: .9em;
 }
+.index article .entry-title {
+  margin: 0;
+  padding: 6% 10%;
+  padding-bottom: 1%;
+}
 .index article .inner {
   margin: 0;
+  padding: 6% 10%;
 }
 .index .photo-url {
   text-align: center;
@@ -576,8 +593,7 @@ a,
   padding: 0px;
 }
 .index .content-text .post {
-  padding: 0% 10%;
-  margin-bottom: 20px;
+  padding: 0;
   padding-bottom: 20px;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -629,6 +645,9 @@ a,
   margin: 5% 11%;
   margin: 5% 13%;
 }
+.permalink .post .html_photoset iframe {
+  display: block !important;
+}
 .permalink .post .entry-content {
   text-align: left;
   /* 
@@ -640,9 +659,10 @@ a,
   width: 100%;
   height: auto;
   clear: both;
-  padding: 2% 0%;
+  padding: 20px 0px;
 }
 .permalink .post .entry-content div[class^="col-"] p {
+  padding: 2% 0%;
   float: left;
   display: inline-block;
 }
@@ -1645,18 +1665,18 @@ ul {
   box-shadow: none;
 }
 #nav-toggle.active .b1 {
-  -webkit-transform: rotate(45deg) translateY(18px);
-  -moz-transform: rotate(45deg) translateY(18px);
-  -ms-transform: rotate(45deg) translateY(18px);
-  -o-transform: rotate(45deg) translateY(18px);
-  transform: rotate(45deg) translateY(18px);
+  -webkit-transform: rotate(45deg) translateY(9px) translateX(9px);
+  -moz-transform: rotate(45deg) translateY(9px) translateX(9px);
+  -ms-transform: rotate(45deg) translateY(9px) translateX(9px);
+  -o-transform: rotate(45deg) translateY(9px) translateX(9px);
+  transform: rotate(45deg) translateY(9px) translateX(9px);
 }
 #nav-toggle.active .b3 {
-  -webkit-transform: rotate(-45deg) translateY(-18px);
-  -moz-transform: rotate(-45deg) translateY(-18px);
-  -ms-transform: rotate(-45deg) translateY(-18px);
-  -o-transform: rotate(-45deg) translateY(-18px);
-  transform: rotate(-45deg) translateY(-18px);
+  -webkit-transform: rotate(-45deg) translateY(-10px) translateX(9px);
+  -moz-transform: rotate(-45deg) translateY(-10px) translateX(9px);
+  -ms-transform: rotate(-45deg) translateY(-10px) translateX(9px);
+  -o-transform: rotate(-45deg) translateY(-10px) translateX(9px);
+  transform: rotate(-45deg) translateY(-10px) translateX(9px);
 }
 #nav-header {
   width: 100%;
@@ -1836,7 +1856,6 @@ ul {
   .three-col.index article {
     width: 32.9%;
     margin: 0 auto;
-    padding: 4% 2%;
     display: inline-block;
   }
   .permalink article {
@@ -1894,7 +1913,6 @@ ul {
   .permalink article {
     width: 50%;
     margin: 0px;
-    padding: 8% 4%;
     display: inline-block;
   }
   .permalink article {

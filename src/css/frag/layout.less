@@ -1,3 +1,19 @@
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #000;
+    text-shadow: none;
+}
+
+::selection {
+    background: #000;
+    text-shadow: none;
+}
+
 iframe {
     display:none !important;
     position: relative;
@@ -158,10 +174,9 @@ a,#credit {
         width: 100%;
     }
     article {
-        margin: 2.666666666666%;
-        margin: 2%;
-        margin: 0;
-        padding: 2% 0%;
+        margin:0;
+        padding: 0;
+
         footer.inner {
             padding: 0;
             border: 0;
@@ -169,8 +184,15 @@ a,#credit {
             display: block;
             font-size: .9em;
         }
+
+        .entry-title {
+            margin: 0;
+            padding:6% 10%;
+            padding-bottom:1%;
+        }
         .inner {
             margin: 0;
+            padding:6% 10%;
         }
     }
     .photo-url {
@@ -308,8 +330,7 @@ a,#credit {
 
     .content-text {
         .post {
-            padding: 0% 10%;
-            margin-bottom:20px;
+            padding: 0;            
             padding-bottom:20px;
             text-overflow: ellipsis;
             overflow:hidden;
@@ -377,6 +398,15 @@ a,#credit {
     }
 
     .post {
+
+
+
+        .html_photoset {
+            iframe {
+                display:block !important;
+            }
+        }
+
         .entry-content {
 
             text-align:left;
@@ -391,9 +421,10 @@ a,#credit {
                 width:100%;
                 height:auto;
                 clear:both;
-                padding:2% 0%;
+                padding:20px 0px;
 
-                p {
+                p { 
+                    padding:2% 0%;
                     float:left;
                     display:inline-block;
                 }
@@ -1107,6 +1138,8 @@ iframe,img,embed,object,video {
 
 
 
+
+
 }
 
 .video-player iframe,.video-player object,.video-player embed {
@@ -1429,10 +1462,10 @@ ul {
         box-shadow: none;
     }
     .b1 {
-        .transform(rotate(45deg) translateY(18px));
+        .transform(rotate(45deg) translateY(9px) translateX(9px));
     }
     .b3 {
-        .transform( rotate(-45deg) translateY(-18px));
+        .transform( rotate(-45deg) translateY(-10px) translateX(9px));
     }
 }
 #nav-header {
